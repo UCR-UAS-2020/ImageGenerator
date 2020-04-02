@@ -11,6 +11,10 @@ from ImageGenerator.proto import Target
 from ImageGenerator.proto import Color
 
 # TODO: add Anti-aliasing
+# assuming that we just want to blur it so edges, etc are not as sharp
+def anti_alias(target):
+    return cv2.blur(target, (5, 5))=
+
 # TODO: add Noise addition
 
 
