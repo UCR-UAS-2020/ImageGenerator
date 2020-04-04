@@ -4,6 +4,7 @@
 # Objects for use elsewhere. Some definitions from auvsi
 
 from enum import Enum
+import json
 
 
 class Color(Enum):
@@ -57,8 +58,22 @@ class Target:
         self.pos = pos
         self.scale = scale
 
+    #TODO: Add proper number generation
     def make_json(self):
-        # returns a json file with information about this target
+        data = {
+            "1": {
+                "alphanumeric": self.alphanumeric,
+                "shape": self.shape,
+                "alphanumeric_color": self.color_alphanum,
+                "shape_color": self.color_shape,
+                "x": self.pos,  # Replace with proper value
+                "y": self.pos,  # Replace with proper value
+                "rotation": self.pos,  # Replace with proper value
+                "scale": self.scale
+            }
+        }
+
+        print(json.dumps(data, indent=2))
         return
 
 
