@@ -55,7 +55,8 @@ class Target:
         self.shape = shape
         self.color_alphanum = alphanumeric_color
         self.color_shape = shape_color
-        self.pos = pos
+        self.pos = pos # list [x,y] format
+        #TODO: Add self.rotation as an integer
         self.scale = scale
 
     #TODO: Add proper number generation
