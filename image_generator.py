@@ -1,14 +1,18 @@
 # Adapted from these sources:
 # https://www.learnopencv.com/alpha-blending-using-opencv-cpp-python/
 #
-
 import numpy as np
 import cv2
+
+import json
 
 from ImageGenerator.proto import *
 from ImageGenerator.target_gen import *
 
 # TODO: Generate this target an put it in 0602.jpg:
+
+
+# Test placeholder target object. we will eventually randomize our own
 target1 = Target(alphanumeric='n',
                  shape=Shape.Triangle,
                  alphanumeric_color=Color.White,
@@ -17,8 +21,43 @@ target1 = Target(alphanumeric='n',
                  scale=1
                  )
 
+
+# psudocode:
+# iH, iW = image height, image width
+
+# return a single random target by picking from the enums in Proto
+def make_random_target(iH,iW):
+    return
+
+
+# return a list of targets by calling make_random_target() several times
+# choose a random number of targets n = [0, 5]
+def make_random_target_list():
+
+    return
+
+
+# Creates a cv2 representation of a image with the superimposed random targets
+def make_image(t_list, im_input):
+    return
+
+
+def make_target_dict_json(t_dict)
+    targ_out_dict = {}
+    for index,targ in enumerate(t_dict):
+        # targ_out_dict.push(key = index, value = targ.make_json)
+
+    return targ_out_dict
+
+
+t_dict = make_random_target_list()
+im_out = make_image()
+
+
+
 # This function should return an cv2 image:
-# create_target_image(target1)
+# Input: target_dict is a dictionary of several subdictionaries that are in the form like target1 above
+# def create_target_image(target_dict)
 
 
 rotation = 0
