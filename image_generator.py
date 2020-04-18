@@ -42,12 +42,19 @@ def make_image(t_list, im_input):
     return
 
 
-def make_target_dict_json(t_dict)
+def make_target_dict_json(t_list):
+    i = 0
     targ_out_dict = {}
-    for index,targ in enumerate(t_dict):
-        # targ_out_dict.push(key = index, value = targ.make_json)
+    for targ in t_list:
+        # can index from 0 or 1
+        targ_out_dict[i] = targ.make_json(index=i)
+        i += 1
 
-    return targ_out_dict
+        # targ_out_dict[targ.key] = targ.make_json(1)
+    # for index, targ in enumerate(t_dict):
+    #     targ_out_dict.update({str(index), targ.make_json()})
+    print(json.dumps(targ_out_dict, indent=2))
+    return json.dumps(targ_out_dict, indent=2)
 
 
 t_dict = make_random_target_list()
