@@ -50,32 +50,32 @@ class Shape(Enum):
 class Target:
     # Create a simplified version of the target class in proto (not all class vars are needed)
 
-    def __init__(self, alphanumeric, shape, alphanumeric_color, shape_color, pos, scale):
+    def __init__(self, alphanumeric, shape, alphanumeric_color, shape_color, pos, rotation, scale):
         self.alphanumeric = alphanumeric
         self.shape = shape
         self.color_alphanum = alphanumeric_color
         self.color_shape = shape_color
         self.pos = pos # list [x,y] format
-        #TODO: Add self.rotation as an integer
+        self.rotation = rotation
         self.scale = scale
 
     #TODO: Add proper number generation
-    def make_json(self):
+    def make_json(self, index):
         data = {
-            "1": {
                 "alphanumeric": self.alphanumeric,
                 "shape": self.shape,
                 "alphanumeric_color": self.color_alphanum,
                 "shape_color": self.color_shape,
-                "x": self.pos,  # Replace with proper value
-                "y": self.pos,  # Replace with proper value
-                "rotation": self.pos,  # Replace with proper value
+                "x": self.pos[0],  # Replace with proper value
+                "y": self.pos[1],  # Replace with proper value
+                "rotation": self.rotation,  # Replace with proper value
                 "scale": self.scale
-            }
         }
 
-        print(json.dumps(data, indent=2))
-        return
+
+        # print(json.dumps(data, indent=2))
+        return data
+
 
 
 Alphanum = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
