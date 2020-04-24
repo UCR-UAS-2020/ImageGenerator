@@ -4,10 +4,12 @@
 import numpy as np
 import cv2
 
-import json
+from typing import List
 
+import json
 from ImageGenerator.proto import *
-from ImageGenerator.target_gen import *
+
+from ImageGenerator.target_gen import create_target_image
 
 # TODO: Generate this target an put it in 0602.jpg:
 
@@ -18,15 +20,15 @@ target1 = Target(alphanumeric='n',
                  alphanumeric_color=Color.White,
                  shape_color=Color.Blue,
                  pos=(100, 100),
-                 scale=1
+                 scale=18
                  )
 
 
-# psudocode:
+# pseudo code:
 # iH, iW = image height, image width
 
 # return a single random target by picking from the enums in Proto
-def make_random_target(iH,iW):
+def make_random_target(iH, iW):
     return
 
 
@@ -42,12 +44,17 @@ def make_image(t_list, im_input):
     return
 
 
-def make_target_dict_json(t_dict)
-    targ_out_dict = {}
-    for index,targ in enumerate(t_dict):
-        # targ_out_dict.push(key = index, value = targ.make_json)
+def make_target_dict_json(t_list: List[Target, ...]) -> str:
+    return json.dumps(t_list)
 
-    return targ_out_dict
+
+def write_image_crop(filename: str, image, target: Target):
+    # get the target position and scale
+    # calcaulate a bounding box by taking position.x +- size and position .y +- size
+    # slice out the subarray from image and save to disk as png
+    #   https://www.geeksforgeeks.org/python-opencv-cv2-imwrite-method/
+    cv2.imwrite('asdf.png', img)
+
 
 
 t_dict = make_random_target_list()
@@ -72,6 +79,76 @@ scale_percent = 20  # percent of original size
 img_target = create_target_image_test()
 
 
+def push_target_to_im(im: np.ndarray, target: Target) -> np.ndarray:
+    img_target = create_target_image(target)
+
+
+
+    width = int(img_target.shape[1] * scale_percent / 100)
+    height = int(img_target.shape[0] * scale_percent / 100)
+    dim = (width, height)
+    # resize image
+    img_target = cv2.resize(img_target, dim, interpolation=cv2.INTER_AREA)
+
+    img_background = cv2.imread(r'.\IMG_0602.JPG')
+    # add a 255-alpha channel to background
+    img_background = np.dstack((img_background, 255. * np.ones(np.shape(img_background)[0:2])))
+
+    rows, cols, depth = img_target.shape
+
+    M = cv2.getRotationMatrix2D((cols / 2, rows / 2), rotation, 1)
+    img_target = cv2.warpAffine(img_target, M, (cols, rows))
+
+    letter_size = np.shape(img_target)
+    background_size = np.shape(img_background)
+
+    # add the letter image to a blank image which is the size of the background
+    img_letter1 = np.zeros(np.shape(img_background))
+    img_letter1[position[0]:position[0] + letter_size[0], position[1]:position[1] + letter_size[1], :letter_size[2]] = \
+        img_target[:, :, :]
+
+    img_filter = img_letter1[:, :, 3]
+    # add an alpha channel by extending the same array to alpha
+    img_filter = np.repeat(img_filter[:, :, np.newaxis], 4, axis=2)
+
+    foreground = img_letter1
+    background = img_background
+    alpha = img_filter
+
+    # Convert u-int8 to float
+    foreground = foreground.astype(float)
+    background = background.astype(float) / 255.
+
+    # Normalize the alpha mask to keep intensity between 0 and 1
+    # alpha = alpha.astype(float) / 255
+
+    # Multiply the foreground with the alpha matte
+    foreground = cv2.multiply(alpha, foreground)
+
+    # Multiply the background with ( 1 - alpha )
+    background = cv2.multiply(1.0 - alpha, background)
+
+    # Add the masked foreground and background.
+    outImage = cv2.add(foreground, background)
+
+    # Display image
+    cv2.imshow("outImg", outImage)
+    cv2.waitKey(0)
+
+    cv2.imwrite('test.png', outImage * 255.)
+
+    if __name__ == '__main__':
+        target1 = Target(alphanumeric='n',
+                         shape=Shape.Triangle,
+                         alphanumeric_color=Color.White,
+                         shape_color=Color.Blue,
+                         pos=(100, 100),
+                         scale=1
+                         )
+
+        t_im = create_target_image(target1)
+
+
 # Scale transform
 
 width = int(img_target.shape[1] * scale_percent / 100)
@@ -80,7 +157,6 @@ dim = (width, height)
 # resize image
 img_target = cv2.resize(img_target, dim, interpolation=cv2.INTER_AREA)
 
-# img_background = cv2.imread(r'C:\Users\chris\Desktop\UCRUAS-2020-Dragonfly-VIEW\image_gen\IMG_0602.JPG')
 img_background = cv2.imread(r'.\IMG_0602.JPG')
 # add a 255-alpha channel to background
 img_background = np.dstack((img_background, 255. * np.ones(np.shape(img_background)[0:2])))
@@ -128,3 +204,20 @@ cv2.imshow("outImg", outImage)
 cv2.waitKey(0)
 
 cv2.imwrite('test.png', outImage*255.)
+
+if __name__ == '__main__':
+    target1 = Target(alphanumeric='n',
+                     shape=Shape.Triangle,
+                     alphanumeric_color=Color.White,
+                     shape_color=Color.Blue,
+                     pos=(100, 100),
+                     scale=18
+                     )
+
+
+    t_im = create_target_image(target1)
+
+
+
+
+
