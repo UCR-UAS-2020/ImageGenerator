@@ -49,11 +49,23 @@ def make_target_dict_json(t_list: List[Target, ...]) -> str:
 
 
 def write_image_crop(filename: str, image, target: Target):
+    # https://www.geeksforgeeks.org/python-opencv-cv2-imwrite-method/
+    # NOTE: this is assuming target.pos is in [y,x] format
     # get the target position and scale
+    scale = target.scale
+    x = target.pos[0]
+    y = target.pos[1]
     # calcaulate a bounding box by taking position.x +- size and position .y +- size
-    # slice out the subarray from image and save to disk as png
-    #   https://www.geeksforgeeks.org/python-opencv-cv2-imwrite-method/
-    cv2.imwrite('asdf.png', img)
+    # (x, y)
+    top_left = (x - scale, y - scale)
+    # (x, y)
+    bot_right = (x + scale, y + scale)
+
+    # slice out subarray
+    img = image[top_left[1]:bot_right[1]+1, top_left[0]:bot_right[0]+1]
+
+    # save to file
+    cv2.imwrite(filename, img)
 
 
 
