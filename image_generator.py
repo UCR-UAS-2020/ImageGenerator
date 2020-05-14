@@ -41,9 +41,8 @@ def make_random_target_list():
 
 # Creates a cv2 representation of a image with the superimposed random targets
 def make_image(t_list, im_input):
-    for target in t_list:
-        write_image_crop(im_input, target)
     return
+
 
 def make_target_dict_json(t_list: List[Target, ...]) -> str:
     return json.dumps(t_list)
