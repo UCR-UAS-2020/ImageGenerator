@@ -45,8 +45,6 @@ def make_random_target_list():
 def make_image(t_list, im_input):
     for target in t_list:
         target_image = create_target_image(target)
-        x = target.pos[0]
-        y = target.pos[1]
         im_input[y: target.pos[0] + target_image.shape[0], x: target.pos[1] + target_image.shape[1]] = target_image
     return
 
