@@ -89,16 +89,16 @@ color_dict = {
 }
 
 
-def hex_to_rgb(hexstr: str) -> Tuple[int, int, int]:
+def hex_to_bgr(hexstr: str) -> Tuple[int, int, int]:
     """
     :param hexstr: the color code as str
-    :return: a tuple representing the RBG value
+    :return: a tuple representing the BGR value
     """
     color_int = int(float.fromhex(hexstr))
     r_val = color_int // (16**4)
     g_val = color_int % (16**4) // (16**2)
     b_val = color_int % (16**2)
-    return r_val, g_val, b_val
+    return b_val, g_val, r_val
 
 
 
