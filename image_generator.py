@@ -20,7 +20,8 @@ target1 = Target(alphanumeric='n',
                  shape=Shape.Triangle,
                  alphanumeric_color=Color.White,
                  shape_color=Color.Blue,
-                 pos=(100, 100),
+                 posx=100,
+                 posy=100,
                  scale=18
                  )
 
@@ -54,8 +55,8 @@ def write_image_crop(filename: str, image, target: Target):
     # NOTE: this is assuming target.pos is in [y,x] format
     # get the target position and scale
     scale = target.scale
-    x = target.pos[0]
-    y = target.pos[1]
+    x = target.x
+    y = target.y
     # calcaulate a bounding box by taking position.x +- size and position .y +- size
     # (x, y)
     top_left = (x - scale, y - scale)
@@ -94,8 +95,6 @@ img_target = create_target_image_test()
 
 def push_target_to_im(im: np.ndarray, target: Target) -> np.ndarray:
     img_target = create_target_image(target)
-
-
 
     width = int(img_target.shape[1] * scale_percent / 100)
     height = int(img_target.shape[0] * scale_percent / 100)
@@ -155,7 +154,8 @@ def push_target_to_im(im: np.ndarray, target: Target) -> np.ndarray:
                          shape=Shape.Triangle,
                          alphanumeric_color=Color.White,
                          shape_color=Color.Blue,
-                         pos=(100, 100),
+                         posx=100,
+                         posy=100,
                          scale=1
                          )
 
@@ -223,7 +223,8 @@ if __name__ == '__main__':
                      shape=Shape.Triangle,
                      alphanumeric_color=Color.White,
                      shape_color=Color.Blue,
-                     pos=(100, 100),
+                     posx=100,
+                     posy=100,
                      scale=18
                      )
 
