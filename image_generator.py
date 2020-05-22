@@ -7,10 +7,11 @@ import cv2
 from typing import List
 
 import json
-from ImageGenerator.proto import *
-
-from ImageGenerator.target_gen import create_target_image
-
+# from ImageGenerator.proto import *
+from proto import *
+# from ImageGenerator.target_gen import create_target_image
+from target_gen import create_target_image
+# TODO: re-implement above imports
 # TODO: Generate this target an put it in 0602.jpg:
 
 
@@ -225,7 +226,6 @@ if __name__ == '__main__':
                      pos=(100, 100),
                      scale=18
                      )
-
 
     t_im = create_target_image(target1)
 
