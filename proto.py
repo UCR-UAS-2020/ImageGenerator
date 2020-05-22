@@ -51,13 +51,15 @@ class Target:
                  shape: Shape,
                  alphanumeric_color: Color,
                  shape_color: Color,
-                 pos: Tuple[int, int],
+                 posx: int,
+                 posy: int,
                  scale: int):
         self.alphanumeric = alphanumeric
         self.shape = shape
         self.color_alphanum = alphanumeric_color
         self.color_shape = shape_color
-        self.pos = pos
+        self.x = posx
+        self.y = posy
         self.scale = scale
 
     def make_json(self) -> str:
@@ -67,7 +69,7 @@ class Target:
 
 
 def nearest_color(color: str) -> Color:
-    return min(color_dict, key=lambda x: np.linalg.norm(np.subtract(color, hex_to_rgb(x))))
+    return min(color_dict, key=lambda x: np.linalg.norm(np.subtract(color, hex_to_bgr(x))))
 
 
 Alphanum = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
