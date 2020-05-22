@@ -99,7 +99,8 @@ if __name__ == '__main__':
                     shape=Shape.Triangle,
                     alphanumeric_color=Color.Red,
                     shape_color=Color.White,
-                    pos=(100, 100),
+                    posx=100,
+                    posy=100,
                     scale=18
                     )
     cv2.imshow('output', create_target_image(target))
