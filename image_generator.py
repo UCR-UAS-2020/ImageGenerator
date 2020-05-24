@@ -46,7 +46,6 @@ def make_image(t_list, im_input):
     return
 
 
-
 def make_target_dict_json(t_list):
     i = 0
     targ_out_dict = {}
