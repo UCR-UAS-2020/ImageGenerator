@@ -57,7 +57,7 @@ def write_image_crop(filename: str, image, target: Target):
     scale = target.scale
     x = target.x
     y = target.y
-    # calcaulate a bounding box by taking position.x +- size and position .y +- size
+    # calculate a bounding box by taking position.x +- size and position .y +- size
     # (x, y)
     top_left = (x - scale, y - scale)
     # (x, y)
