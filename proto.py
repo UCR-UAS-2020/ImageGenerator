@@ -65,18 +65,18 @@ class Target:
         self.rotation = rotation
 
     # TODO: Add proper number generation
-    def make_json(self, index) -> str:
+    def make_json(self):
         data = {
                 "alphanumeric": self.alphanumeric,
-                "shape": self.shape,
-                "alphanumeric_color": self.color_alphanum,
-                "shape_color": self.color_shape,
+                "shape": self.shape.name,
+                "alphanumeric_color": self.color_alphanum.name,
+                "shape_color": self.color_shape.name,
                 "x": self.x,  # Replace with proper value
                 "y": self.y,  # Replace with proper value
                 "rotation": self.rotation,  # Replace with proper value
                 "scale": self.scale
         }
-        
+
         return data
 
 
