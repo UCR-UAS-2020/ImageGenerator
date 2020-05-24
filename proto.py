@@ -1,8 +1,13 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-# Objects for use elsewhere. Some definitions from auvsi
+"""
+Basic class prototypes for image generation. Enum definitions from AUVSI-SUAS/Interop repo
+"""
 
+import cv2
+import numpy as np
+from typing import Tuple, List
 from enum import Enum
 import json
 
@@ -20,14 +25,6 @@ class Color(Enum):
     Orange = 10
 
     def get_color_literal(self):
-        # TODO: Populate this lookup table with values for all colors. These should be taken from past examples
-        color_dict = {
-            Color.White:    (255, 255, 255),
-            Color.Black:    (0, 0, 0),
-            Color.Blue:     (192, 137, 121),
-            Color.Yellow:   (0., 255., 255.)
-            # ...
-        }
         return color_dict[self]
 
 
@@ -50,14 +47,22 @@ class Shape(Enum):
 class Target:
     # Create a simplified version of the target class in proto (not all class vars are needed)
 
-    def __init__(self, alphanumeric, shape, alphanumeric_color, shape_color, pos, rotation, scale):
+    def __init__(self,
+                 alphanumeric: str,
+                 shape: Shape,
+                 alphanumeric_color: Color,
+                 shape_color: Color,
+                 posx: int,
+                 posy: int,
+                 scale: int):
         self.alphanumeric = alphanumeric
         self.shape = shape
         self.color_alphanum = alphanumeric_color
         self.color_shape = shape_color
-        self.pos = pos # list [x,y] format
-        self.rotation = rotation
+        self.x = posx
+        self.y = posy
         self.scale = scale
+        self.rotation = rotation
 
     #TODO: Add proper number generation
     def make_json(self, index):
@@ -76,12 +81,48 @@ class Target:
         # print(json.dumps(data, indent=2))
         return data
 
+        
+
+    def make_json(self) -> str:
+
+        # returns a json file with information about this target
+        return
+
+
+def nearest_color(color: str) -> Color:
+    return min(color_dict, key=lambda x: np.linalg.norm(np.subtract(color, hex_to_bgr(x))))
 
 
 Alphanum = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
             'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
             'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
             'u', 'v', 'w', 'x', ' y', 'z']
+
+color_dict = {
+    Color.White:    '0xffffff',
+    Color.Black:    '0x000000',
+    Color.Gray:     '0x808080',
+    Color.Red:      '0xff0000',
+    Color.Blue:     '0x0000ff',  # Sampled from 0602.jpg (192,   137,    121)
+    Color.Green:    '0x00ff00',
+    Color.Yellow:   '0x00ffff',
+    Color.Purple:   '0xff00ff',
+    Color.Brown:    '0x422100',
+    Color.Orange:   '0xff8000'
+}
+
+
+def hex_to_bgr(hexstr: str) -> Tuple[int, int, int]:
+    """
+    :param hexstr: the color code as str
+    :return: a tuple representing the BGR value
+    """
+    color_int = int(float.fromhex(hexstr))
+    r_val = color_int // (16**4)
+    g_val = color_int % (16**4) // (16**2)
+    b_val = color_int % (16**2)
+    return b_val, g_val, r_val
+
 
 
 # These are unused (module copied from dragonfly-view):
