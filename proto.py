@@ -65,7 +65,7 @@ class Target:
         self.rotation = rotation
 
     #TODO: Add proper number generation
-    def make_json(self, index)  ->  str:
+    def make_json(self, index) -> str:
         data = {
                 "alphanumeric": self.alphanumeric,
                 "shape": self.shape,
@@ -78,7 +78,6 @@ class Target:
         }
         
         return data
-
 
 
 def nearest_color(color: str) -> Color:
