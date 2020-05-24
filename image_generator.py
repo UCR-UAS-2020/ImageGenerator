@@ -63,7 +63,7 @@ def make_target_dict_json(t_list):
 
 def write_image_crop(filename: str, image, target: Target):
     # https://www.geeksforgeeks.org/python-opencv-cv2-imwrite-method/
-    # NOTE: this is assuming target.pos is in [y,x] format
+    # TODO: refactor image cropping based on target.scale
     # get the target position and scale
     scale = target.scale
     x = target.x
