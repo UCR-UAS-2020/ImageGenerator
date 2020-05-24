@@ -64,7 +64,7 @@ class Target:
         self.scale = scale
         self.rotation = rotation
 
-    #TODO: Add proper number generation
+    # TODO: Add proper number generation
     def make_json(self, index) -> str:
         data = {
                 "alphanumeric": self.alphanumeric,
