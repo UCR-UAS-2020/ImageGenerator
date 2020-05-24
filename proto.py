@@ -71,22 +71,14 @@ class Target:
                 "shape": self.shape,
                 "alphanumeric_color": self.color_alphanum,
                 "shape_color": self.color_shape,
-                "x": self.pos[0],  # Replace with proper value
-                "y": self.pos[1],  # Replace with proper value
+                "x": self.x,  # Replace with proper value
+                "y": self.y,  # Replace with proper value
                 "rotation": self.rotation,  # Replace with proper value
                 "scale": self.scale
         }
-
-
-        # print(json.dumps(data, indent=2))
+        
         return data
 
-        
-
-    def make_json(self) -> str:
-
-        # returns a json file with information about this target
-        return
 
 
 def nearest_color(color: str) -> Color:
