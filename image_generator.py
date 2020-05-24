@@ -47,11 +47,11 @@ def make_image(t_list, im_input):
 
 
 def make_target_dict_json(t_list):
-    i = 0
     targ_out_dict = {}
+    i = 1
     for targ in t_list:
         # can index from 0 or 1
-        targ_out_dict[i] = targ.make_json(index=i)
+        targ_out_dict[i] = targ.make_json()
         i += 1
 
         # targ_out_dict[targ.key] = targ.make_json(1)
