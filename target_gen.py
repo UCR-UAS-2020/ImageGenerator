@@ -101,7 +101,8 @@ if __name__ == '__main__':
                     shape_color=Color.White,
                     posx=100,
                     posy=100,
-                    scale=18
+                    scale=100
                     )
     cv2.imshow('output', create_target_image(target))
     cv2.waitKey(0)
+    cv2.destroyAllWindows()
