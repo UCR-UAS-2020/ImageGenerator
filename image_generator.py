@@ -39,6 +39,7 @@ def make_random_target(image_height, image_width):
     x = random.randint(0, image_width)
     y = random.randint(0, image_height)
     scale = random.randint(20, 60)
+    rotation = random.randint(0, 359)
 
     return Target(alphanumeric=alphanum,
                   shape=shape,
@@ -46,7 +47,8 @@ def make_random_target(image_height, image_width):
                   shape_color=shape_color,
                   posx=x,
                   posy=y,
-                  scale=scale
+                  scale=scale,
+                  rotation=rotation
                   )
 
 
