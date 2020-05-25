@@ -3,6 +3,7 @@
 #
 import numpy as np
 import cv2
+import random
 
 from typing import List
 
@@ -30,8 +31,23 @@ target1 = Target(alphanumeric='n',
 # iH, iW = image height, image width
 
 # return a single random target by picking from the enums in Proto
-def make_random_target(iH, iW):
-    return
+def make_random_target(image_height, image_width):
+    alphanum = Alphanum[random.randint(0, 35)]
+    shape = random.choice(list(Shape))
+    alphanum_color = random.choice(list(Color))
+    shape_color = random.choice(list(Color))
+    x = random.randint(0, image_width)
+    y = random.randint(0, image_height)
+    scale = random.randint(20, 60)
+
+    return Target(alphanumeric=alphanum,
+                  shape=shape,
+                  alphanumeric_color=alphanum_color,
+                  shape_color=shape_color,
+                  posx=x,
+                  posy=y,
+                  scale=scale
+                  )
 
 
 # return a list of targets by calling make_random_target() several times
