@@ -7,8 +7,11 @@
 import numpy as np
 import cv2
 
-from ImageGenerator.proto import Target
-from ImageGenerator.proto import Color
+# from ImageGenerator.proto import Target
+# from ImageGenerator.proto import Color
+# TODO: re-implement above imports instead of below
+from proto import *
+
 
 # TODO: add Anti-aliasing
 # TODO: add Noise addition
@@ -19,8 +22,37 @@ def create_target_image(target):
     #  object passed in instead of hardcoded values
     # creates an image rendering in 4 channels (BGRA) of the target passed to it. This should use the same methods as
     # the create_target_image_test function below.
-    img = np.zeros((10, 10, 10, 10))
-    return
+    shape_color_bgr = target.color_shape
+    letter_color_bgr = target.color_alphanum
+
+    letter_file = 'Letters/' + target.alphanumeric + '.png'
+    png_letter = cv2.imread(letter_file, cv2.IMREAD_UNCHANGED)
+    letter_filter = cv2.inRange(png_letter, (100, 0, 0), (255, 255, 255))
+
+    img_letter = np.repeat(letter_filter[:, :, np.newaxis], 4, axis=2)
+    png_shape = cv2.imread('Shapes/' + str(target.shape.value) + '.png', cv2.IMREAD_UNCHANGED)
+
+    shape_filter = cv2.inRange(png_shape, (100, 0, 0), (255, 255, 255))
+    img_shape = np.repeat(shape_filter[:, :, np.newaxis], 4, axis=2)
+
+    img_letter = img_letter.astype(float)
+    img_shape = img_shape.astype(float)
+
+    alpha = img_letter/255.
+
+    color_norm = np.reshape(hex_to_bgr(color_dict[letter_color_bgr]) + (255.,), [1, 1, 4]) / 255
+    # color_norm = np.reshape(np.tile(255, 4), [1, 1, 4])/255
+    color_mat = np.tile(color_norm, list(np.shape(img_letter)[0:2])+[1])
+    img_letter = np.multiply(img_letter, color_mat)/255.
+
+    color_norm = np.reshape(hex_to_bgr(color_dict[shape_color_bgr]) + (255.,), [1, 1, 4]) / 255.
+    # color_norm = np.reshape(np.tile(shape_color_bgr.value + 255., 4), [1, 1, 4])/255.
+    color_mat = np.tile(color_norm, list(np.shape(img_shape)[0:2])+[1])
+    img_shape = np.multiply(img_shape, color_mat)/255.
+
+    img_shape = cv2.multiply(1.0 - alpha, img_shape)
+    img_out = cv2.add(img_shape, img_letter)
+    return img_out
 
 
 def create_target_image_test():
@@ -63,5 +95,15 @@ def create_target_image_test():
 
 
 if __name__ == '__main__':
-    cv2.imshow('output', create_target_image_test())
+    target = Target(alphanumeric='i',
+                    shape=Shape.Triangle,
+                    alphanumeric_color=Color.Red,
+                    shape_color=Color.White,
+                    posx=100,
+                    posy=100,
+                    scale=100,
+                    rotation=60
+                    )
+    cv2.imshow('output', create_target_image(target))
     cv2.waitKey(0)
+    cv2.destroyAllWindows()

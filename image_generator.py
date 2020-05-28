@@ -3,16 +3,16 @@
 #
 import numpy as np
 import cv2
+import random
 
 from typing import List
 
 import json
 # from ImageGenerator.proto import *
 from proto import *
-
 # from ImageGenerator.target_gen import create_target_image
 from target_gen import create_target_image
-
+# TODO: re-implement above imports
 # TODO: Generate this target an put it in 0602.jpg:
 
 
@@ -21,7 +21,8 @@ target1 = Target(alphanumeric='n',
                  shape=Shape.Triangle,
                  alphanumeric_color=Color.White,
                  shape_color=Color.Blue,
-                 pos=(100, 100),
+                 posx=100,
+                 posy=100,
                  scale=18
                  )
 
@@ -30,8 +31,25 @@ target1 = Target(alphanumeric='n',
 # iH, iW = image height, image width
 
 # return a single random target by picking from the enums in Proto
-def make_random_target(iH, iW):
-    return
+def make_random_target(image_height, image_width):
+    alphanum = Alphanum[random.randint(0, 35)]
+    shape = random.choice(list(Shape))
+    alphanum_color = random.choice(list(Color))
+    shape_color = random.choice(list(Color))
+    x = random.randint(0, image_width)
+    y = random.randint(0, image_height)
+    scale = random.randint(20, 60)
+    rotation = random.randint(0, 359)
+
+    return Target(alphanumeric=alphanum,
+                  shape=shape,
+                  alphanumeric_color=alphanum_color,
+                  shape_color=shape_color,
+                  posx=x,
+                  posy=y,
+                  scale=scale,
+                  rotation=rotation
+                  )
 
 
 # return a list of targets by calling make_random_target() several times
@@ -49,16 +67,39 @@ def make_image(t_list, im_input):
     return
 
 
-def make_target_dict_json(t_list: List[Target, ...]) -> str:
-    return json.dumps(t_list)
+def make_target_dict_json(t_list):
+    targ_out_dict = {}
+    i = 1
+    for targ in t_list:
+        # can index from 0 or 1
+        targ_out_dict[i] = targ.make_json()
+        i += 1
+
+        # targ_out_dict[targ.key] = targ.make_json(1)
+    # for index, targ in enumerate(t_dict):
+    #     targ_out_dict.update({str(index), targ.make_json()})
+    print(json.dumps(targ_out_dict, indent=2))
+    return json.dumps(targ_out_dict, indent=2)
 
 
 def write_image_crop(filename: str, image, target: Target):
+    # https://www.geeksforgeeks.org/python-opencv-cv2-imwrite-method/
+    # TODO: refactor image cropping based on target.scale
     # get the target position and scale
-    # calcaulate a bounding box by taking position.x +- size and position .y +- size
-    # slice out the subarray from image and save to disk as png
-    #   https://www.geeksforgeeks.org/python-opencv-cv2-imwrite-method/
-    cv2.imwrite('asdf.png', img)
+    scale = target.scale
+    x = target.x
+    y = target.y
+    # calculate a bounding box by taking position.x +- size and position .y +- size
+    # (x, y)
+    top_left = (x - scale, y - scale)
+    # (x, y)
+    bot_right = (x + scale, y + scale)
+
+    # slice out subarray
+    img = image[top_left[1]:bot_right[1]+1, top_left[0]:bot_right[0]+1]
+
+    # save to file
+    cv2.imwrite(filename, img)
 
 
 
@@ -86,8 +127,6 @@ img_target = create_target_image_test()
 
 def push_target_to_im(im: np.ndarray, target: Target) -> np.ndarray:
     img_target = create_target_image(target)
-
-
 
     width = int(img_target.shape[1] * scale_percent / 100)
     height = int(img_target.shape[0] * scale_percent / 100)
@@ -147,7 +186,8 @@ def push_target_to_im(im: np.ndarray, target: Target) -> np.ndarray:
                          shape=Shape.Triangle,
                          alphanumeric_color=Color.White,
                          shape_color=Color.Blue,
-                         pos=(100, 100),
+                         posx=100,
+                         posy=100,
                          scale=1
                          )
 
@@ -215,10 +255,10 @@ if __name__ == '__main__':
                      shape=Shape.Triangle,
                      alphanumeric_color=Color.White,
                      shape_color=Color.Blue,
-                     pos=(100, 100),
+                     posx=100,
+                     posy=100,
                      scale=18
                      )
-
 
     t_im = create_target_image(target1)
 

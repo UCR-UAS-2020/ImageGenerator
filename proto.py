@@ -9,6 +9,7 @@ import cv2
 import numpy as np
 from typing import Tuple, List
 from enum import Enum
+import json
 
 
 class Color(Enum):
@@ -51,23 +52,36 @@ class Target:
                  shape: Shape,
                  alphanumeric_color: Color,
                  shape_color: Color,
-                 pos: Tuple[int, int],
+                 posx: int,
+                 posy: int,
                  scale: int):
         self.alphanumeric = alphanumeric
         self.shape = shape
         self.color_alphanum = alphanumeric_color
         self.color_shape = shape_color
-        self.pos = pos
+        self.x = posx
+        self.y = posy
         self.scale = scale
+        self.rotation = rotation
 
-    def make_json(self) -> str:
+    # TODO: Add proper number generation
+    def make_json(self):
+        data = {
+                "alphanumeric": self.alphanumeric,
+                "shape": self.shape.name,
+                "alphanumeric_color": self.color_alphanum.name,
+                "shape_color": self.color_shape.name,
+                "x": self.x,  # Replace with proper value
+                "y": self.y,  # Replace with proper value
+                "rotation": self.rotation,  # Replace with proper value
+                "scale": self.scale
+        }
 
-        # returns a json file with information about this target
-        return
+        return data
 
 
 def nearest_color(color: str) -> Color:
-    return min(color_dict, key=lambda x: np.linalg.norm(np.subtract(color, hex_to_rgb(x))))
+    return min(color_dict, key=lambda x: np.linalg.norm(np.subtract(color, hex_to_bgr(x))))
 
 
 Alphanum = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
@@ -89,16 +103,16 @@ color_dict = {
 }
 
 
-def hex_to_rgb(hexstr: str) -> Tuple[int, int, int]:
+def hex_to_bgr(hexstr: str) -> Tuple[int, int, int]:
     """
     :param hexstr: the color code as str
-    :return: a tuple representing the RBG value
+    :return: a tuple representing the BGR value
     """
     color_int = int(float.fromhex(hexstr))
     r_val = color_int // (16**4)
     g_val = color_int % (16**4) // (16**2)
     b_val = color_int % (16**2)
-    return r_val, g_val, b_val
+    return b_val, g_val, r_val
 
 
 
