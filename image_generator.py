@@ -32,13 +32,17 @@ target1 = Target(alphanumeric='n',
 
 # return a single random target by picking from the enums in Proto
 def make_random_target(image_height, image_width):
-    alphanum = Alphanum[random.randint(0, 35)]
+    alphanum = random.choice(list(Alphanum))
     shape = random.choice(list(Shape))
     alphanum_color = random.choice(list(Color))
     shape_color = random.choice(list(Color))
-    x = random.randint(0, image_width)
-    y = random.randint(0, image_height)
-    scale = random.randint(20, 60)
+    scale = random.randint(10, 20)
+    width = int(image_width * (scale / 100.))
+    height = int(image_height * (scale / 100.))
+    while alphanum_color == shape_color:
+        shape_color = random.choice(list(Color))
+    x = random.randint(width, int(image_width-width*1.5))
+    y = random.randint(height, int(image_height-height*1.5))
     rotation = random.randint(0, 359)
 
     return Target(alphanumeric=alphanum,
@@ -55,16 +59,16 @@ def make_random_target(image_height, image_width):
 # return a list of targets by calling make_random_target() several times
 # choose a random number of targets n = [0, 5]
 def make_random_target_list():
-
+d
     return
 
 
 # Creates a cv2 representation of a image with the superimposed random targets
 def make_image(t_list, im_input):
+    im_output = im_input / 255.
     for target in t_list:
-        target_image = create_target_image(target)
-        im_input[y: target.pos[0] + target_image.shape[0], x: target.pos[1] + target_image.shape[1]] = target_image
-    return
+        im_output = push_target_to_im(im_output * 255., target)
+    return im_output
 
 
 def make_target_dict_json(t_list):
@@ -126,16 +130,25 @@ img_target = create_target_image_test()
 
 
 def push_target_to_im(im: np.ndarray, target: Target) -> np.ndarray:
+    scale_percent = target.scale
+    rotation = target.rotation
+    x = target.x
+    y = target.y
+
     img_target = create_target_image(target)
 
-    width = int(img_target.shape[1] * scale_percent / 100)
-    height = int(img_target.shape[0] * scale_percent / 100)
+    width = int(img_target.shape[1] * (scale_percent / 100.))
+    height = int(img_target.shape[0] * (scale_percent / 100.))
     dim = (width, height)
     # resize image
     img_target = cv2.resize(img_target, dim, interpolation=cv2.INTER_AREA)
 
-    img_background = cv2.imread(r'.\IMG_0602.JPG')
+    # img_background = cv2.imread(r'.\IMG_0602.JPG')
+    img_background = im
     # add a 255-alpha channel to background
+    if img_background.shape[2] == 4:
+        img_background = img_background[:, :, 0:3]
+
     img_background = np.dstack((img_background, 255. * np.ones(np.shape(img_background)[0:2])))
 
     rows, cols, depth = img_target.shape
@@ -148,7 +161,8 @@ def push_target_to_im(im: np.ndarray, target: Target) -> np.ndarray:
 
     # add the letter image to a blank image which is the size of the background
     img_letter1 = np.zeros(np.shape(img_background))
-    img_letter1[position[0]:position[0] + letter_size[0], position[1]:position[1] + letter_size[1], :letter_size[2]] = \
+
+    img_letter1[y:y + img_target.shape[0], x:x + img_target.shape[1], :] = \
         img_target[:, :, :]
 
     img_filter = img_letter1[:, :, 3]
@@ -175,23 +189,10 @@ def push_target_to_im(im: np.ndarray, target: Target) -> np.ndarray:
     # Add the masked foreground and background.
     outImage = cv2.add(foreground, background)
 
-    # Display image
-    cv2.imshow("outImg", outImage)
-    cv2.waitKey(0)
 
-    cv2.imwrite('test.png', outImage * 255.)
 
-    if __name__ == '__main__':
-        target1 = Target(alphanumeric='n',
-                         shape=Shape.Triangle,
-                         alphanumeric_color=Color.White,
-                         shape_color=Color.Blue,
-                         posx=100,
-                         posy=100,
-                         scale=1
-                         )
+    return outImage
 
-        t_im = create_target_image(target1)
 
 
 # Scale transform
