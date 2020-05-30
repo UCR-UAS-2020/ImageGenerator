@@ -55,6 +55,15 @@ def make_random_target(image_height, image_width):
 # return a list of targets by calling make_random_target() several times
 # choose a random number of targets n = [0, 5]
 def make_random_target_list():
+    target_number = random.randint(0, 6)
+
+    # TODO: Replace with desired values, unless random width/height generation is suitable
+    target_height = random.randint(0, 10)
+    target_width = random.randint(0, 10)
+
+    target_list = [make_random_target(target_height, target_width)]
+    for i in range(1, target_number + 1):
+        target_list[i] = make_random_target(target_height, target_width)
 
     return
 
