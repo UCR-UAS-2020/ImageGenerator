@@ -54,7 +54,8 @@ class Target:
                  shape_color: Color,
                  posx: int,
                  posy: int,
-                 scale: int):
+                 scale: int,
+                 rotation: int):
         self.alphanumeric = alphanumeric
         self.shape = shape
         self.color_alphanum = alphanumeric_color

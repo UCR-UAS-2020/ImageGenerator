@@ -17,14 +17,14 @@ from target_gen import create_target_image
 
 
 # Test placeholder target object. we will eventually randomize our own
-target1 = Target(alphanumeric='n',
-                 shape=Shape.Triangle,
-                 alphanumeric_color=Color.White,
-                 shape_color=Color.Blue,
-                 posx=100,
-                 posy=100,
-                 scale=18
-                 )
+# target1 = Target(alphanumeric='n',
+#                  shape=Shape.Triangle,
+#                  alphanumeric_color=Color.White,
+#                  shape_color=Color.Blue,
+#                  posx=100,
+#                  posy=100,
+#                  scale=18
+#                  )
 
 
 # pseudo code:
@@ -58,9 +58,11 @@ def make_random_target(image_height, image_width):
 
 # return a list of targets by calling make_random_target() several times
 # choose a random number of targets n = [0, 5]
-def make_random_target_list():
-d
-    return
+def make_random_target_list(image_height, image_width):
+    target_list = []
+    for i in range(0, 2):
+        target_list.append(make_random_target(image_height, image_width))
+    return target_list
 
 
 # Creates a cv2 representation of a image with the superimposed random targets
@@ -107,8 +109,8 @@ def write_image_crop(filename: str, image, target: Target):
 
 
 
-t_dict = make_random_target_list()
-im_out = make_image()
+# t_dict = make_random_target_list()
+# im_out = make_image()
 
 
 
@@ -126,7 +128,7 @@ scale_percent = 20  # percent of original size
 
 
 # Read the images
-img_target = create_target_image_test()
+# img_target = create_target_image_test()
 
 
 def push_target_to_im(im: np.ndarray, target: Target) -> np.ndarray:
@@ -142,7 +144,6 @@ def push_target_to_im(im: np.ndarray, target: Target) -> np.ndarray:
     dim = (width, height)
     # resize image
     img_target = cv2.resize(img_target, dim, interpolation=cv2.INTER_AREA)
-
     # img_background = cv2.imread(r'.\IMG_0602.JPG')
     img_background = im
     # add a 255-alpha channel to background
@@ -150,7 +151,6 @@ def push_target_to_im(im: np.ndarray, target: Target) -> np.ndarray:
         img_background = img_background[:, :, 0:3]
 
     img_background = np.dstack((img_background, 255. * np.ones(np.shape(img_background)[0:2])))
-
     rows, cols, depth = img_target.shape
 
     M = cv2.getRotationMatrix2D((cols / 2, rows / 2), rotation, 1)
@@ -161,8 +161,9 @@ def push_target_to_im(im: np.ndarray, target: Target) -> np.ndarray:
 
     # add the letter image to a blank image which is the size of the background
     img_letter1 = np.zeros(np.shape(img_background))
-
-    img_letter1[y:y + img_target.shape[0], x:x + img_target.shape[1], :] = \
+    target_height = img_target.shape[0]
+    target_width = img_target.shape[1]
+    img_letter1[y:y + target_height, x:x + target_width, :] = \
         img_target[:, :, :]
 
     img_filter = img_letter1[:, :, 3]
@@ -196,7 +197,7 @@ def push_target_to_im(im: np.ndarray, target: Target) -> np.ndarray:
 
 
 # Scale transform
-
+'''
 width = int(img_target.shape[1] * scale_percent / 100)
 height = int(img_target.shape[0] * scale_percent / 100)
 dim = (width, height)
@@ -250,19 +251,25 @@ cv2.imshow("outImg", outImage)
 cv2.waitKey(0)
 
 cv2.imwrite('test.png', outImage*255.)
-
+'''
 if __name__ == '__main__':
-    target1 = Target(alphanumeric='n',
-                     shape=Shape.Triangle,
-                     alphanumeric_color=Color.White,
-                     shape_color=Color.Blue,
-                     posx=100,
-                     posy=100,
-                     scale=18
-                     )
-
-    t_im = create_target_image(target1)
-
+    # img = cv2.imread('background-of-green-and-healthy-grass-royalty-free-image-1586800097.jpg')
+    img = cv2.imread('background-of-green-and-healthy-grass-royalty-free-image-1586800097.jpg')
+    scale_percent = 60  # percent of original size
+    width = int(img.shape[1] * scale_percent / 100)
+    height = int(img.shape[0] * scale_percent / 100)
+    dim = (width, height)
+    resized = cv2.resize(img, dim, interpolation=cv2.INTER_AREA)
+    t_list = make_random_target_list(resized.shape[1], resized.shape[0])
+    new_img = make_image(t_list, resized)
+    json = make_target_dict_json(t_list)
+    cv2.imshow('win', new_img)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+    cv2.imwrite('1.png', new_img * 255.)
+    file = open(r'1.json', 'a')
+    file.write(json)
+    file.close()
 
 
 
