@@ -109,7 +109,7 @@ def make_target_dict_json(t_list):
         # targ_out_dict[targ.key] = targ.make_json(1)
     # for index, targ in enumerate(t_dict):
     #     targ_out_dict.update({str(index), targ.make_json()})
-    print(json.dumps(targ_out_dict, indent=2))
+    # print(json.dumps(targ_out_dict, indent=2))
     return json.dumps(targ_out_dict, indent=2)
 
 

@@ -5,11 +5,9 @@
 Basic class prototypes for image generation. Enum definitions from AUVSI-SUAS/Interop repo
 """
 
-import cv2
 import numpy as np
 from typing import Tuple, List
 from enum import Enum
-import json
 
 
 class Color(Enum):
@@ -42,7 +40,6 @@ class Shape(Enum):
     Octagon = 11
     Star = 12
     Cross = 13
-    Rotated_Rectangle = 14
 
 
 class Target:
