@@ -42,6 +42,7 @@ class Shape(Enum):
     Octagon = 11
     Star = 12
     Cross = 13
+    Rotated_Rectangle = 14
 
 
 class Target:

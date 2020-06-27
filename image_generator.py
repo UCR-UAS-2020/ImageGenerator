@@ -31,6 +31,7 @@ from target_gen import create_target_image
 # iH, iW = image height, image width
 
 # return a single random target by picking from the enums in Proto
+
 def make_random_target(image_height, image_width):
     alphanum = random.choice(list(Alphanum))
     shape = random.choice(list(Shape))
@@ -41,8 +42,8 @@ def make_random_target(image_height, image_width):
     height = int(image_height * (scale / 100.))
     while alphanum_color == shape_color:
         shape_color = random.choice(list(Color))
-    x = random.randint(width, int(image_width-width*1.5))
-    y = random.randint(height, int(image_height-height*1.5))
+    x = random.randint(0, int(image_width-width))
+    y = random.randint(0, int(image_height-height))
     rotation = random.randint(0, 359)
 
     return Target(alphanumeric=alphanum,
@@ -56,11 +57,35 @@ def make_random_target(image_height, image_width):
                   )
 
 
+# Test function, makes a specific target instead of a random one
+# def make_random_target(image_height, image_width):
+#     alphanum = '0'
+#     shape = Shape.Rotated_Rectangle
+#     alphanum_color = Color.White
+#     shape_color = Color.Black
+#     scale = 15
+#     width = int(image_width * (scale / 100.))
+#     height = int(image_height * (scale / 100.))
+#     x = int(image_width - width*1.5)
+#     y = int(image_height - height*1.5)
+#     rotation = 90
+#     return Target(alphanumeric=alphanum,
+#                   shape=shape,
+#                   alphanumeric_color=alphanum_color,
+#                   shape_color=shape_color,
+#                   posx=x,
+#                   posy=y,
+#                   scale=scale,
+#                   rotation=rotation
+#                   )
+
+
 # return a list of targets by calling make_random_target() several times
 # choose a random number of targets n = [0, 5]
 def make_random_target_list(image_height, image_width):
     target_list = []
-    for i in range(0, 2):
+    upper_bound = random.randint(0, 6)
+    for i in range(0, upper_bound):
         target_list.append(make_random_target(image_height, image_width))
     return target_list
 
@@ -161,9 +186,7 @@ def push_target_to_im(im: np.ndarray, target: Target) -> np.ndarray:
 
     # add the letter image to a blank image which is the size of the background
     img_letter1 = np.zeros(np.shape(img_background))
-    target_height = img_target.shape[0]
-    target_width = img_target.shape[1]
-    img_letter1[y:y + target_height, x:x + target_width, :] = \
+    img_letter1[y:y + height, x:x + width, :] = \
         img_target[:, :, :]
 
     img_filter = img_letter1[:, :, 3]
@@ -260,14 +283,14 @@ if __name__ == '__main__':
     height = int(img.shape[0] * scale_percent / 100)
     dim = (width, height)
     resized = cv2.resize(img, dim, interpolation=cv2.INTER_AREA)
-    t_list = make_random_target_list(resized.shape[1], resized.shape[0])
+    t_list = make_random_target_list(resized.shape[0], resized.shape[1])
     new_img = make_image(t_list, resized)
     json = make_target_dict_json(t_list)
     cv2.imshow('win', new_img)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
     cv2.imwrite('1.png', new_img * 255.)
-    file = open(r'1.json', 'a')
+    file = open(r'1.json', 'w')
     file.write(json)
     file.close()
 
