@@ -1,0 +1,22 @@
+{
+  "1": {
+    "alphanumeric": "u",
+    "shape": "Pentagon",
+    "alphanumeric_color": "Gray",
+    "shape_color": "Green",
+    "x": 1060,
+    "y": 504,
+    "rotation": 187,
+    "scale": 17
+  },
+  "2": {
+    "alphanumeric": "q",
+    "shape": "Circle",
+    "alphanumeric_color": "Gray",
+    "shape_color": "Purple",
+    "x": 759,
+    "y": 196,
+    "rotation": 237,
+    "scale": 12
+  }
+}

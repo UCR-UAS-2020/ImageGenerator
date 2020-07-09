@@ -1,0 +1,32 @@
+{
+  "1": {
+    "alphanumeric": "i",
+    "shape": "Quarter_Circle",
+    "alphanumeric_color": "Gray",
+    "shape_color": "Orange",
+    "x": 1224,
+    "y": 95,
+    "rotation": 202,
+    "scale": 10
+  },
+  "2": {
+    "alphanumeric": "k",
+    "shape": "Quarter_Circle",
+    "alphanumeric_color": "Black",
+    "shape_color": "White",
+    "x": 65,
+    "y": 115,
+    "rotation": 247,
+    "scale": 19
+  },
+  "3": {
+    "alphanumeric": "n",
+    "shape": "Semicircle",
+    "alphanumeric_color": "Brown",
+    "shape_color": "Yellow",
+    "x": 938,
+    "y": 598,
+    "rotation": 160,
+    "scale": 19
+  }
+}

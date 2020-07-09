@@ -1,0 +1,22 @@
+{
+  "1": {
+    "alphanumeric": "n",
+    "shape": "Hexagon",
+    "alphanumeric_color": "White",
+    "shape_color": "Green",
+    "x": 242,
+    "y": 622,
+    "rotation": 299,
+    "scale": 10
+  },
+  "2": {
+    "alphanumeric": "w",
+    "shape": "Trapezoid",
+    "alphanumeric_color": "Blue",
+    "shape_color": "Red",
+    "x": 271,
+    "y": 466,
+    "rotation": 348,
+    "scale": 10
+  }
+}
