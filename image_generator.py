@@ -144,7 +144,6 @@ def write_image_and_json(target_list, file_number, img):
     json_file.write(json_string)
     json_file.close()
 
-
 if __name__ == '__main__':
     params = parse()
     background_image = cv2.imread(params.input_file)

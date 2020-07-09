@@ -3,20 +3,40 @@
     "alphanumeric": "u",
     "shape": "Pentagon",
     "alphanumeric_color": "Gray",
-    "shape_color": "Green",
-    "x": 1060,
-    "y": 504,
-    "rotation": 187,
-    "scale": 17
+    "shape_color": "White",
+    "x": 647,
+    "y": 392,
+    "rotation": 334,
+    "scale": 14
   },
   "2": {
-    "alphanumeric": "q",
-    "shape": "Circle",
+    "alphanumeric": "j",
+    "shape": "Triangle",
     "alphanumeric_color": "Gray",
-    "shape_color": "Purple",
-    "x": 759,
-    "y": 196,
-    "rotation": 237,
+    "shape_color": "Green",
+    "x": 1011,
+    "y": 219,
+    "rotation": 319,
+    "scale": 10
+  },
+  "3": {
+    "alphanumeric": "n",
+    "shape": "Hexagon",
+    "alphanumeric_color": "Orange",
+    "shape_color": "Green",
+    "x": 557,
+    "y": 259,
+    "rotation": 127,
+    "scale": 19
+  },
+  "4": {
+    "alphanumeric": "f",
+    "shape": "Heptagon",
+    "alphanumeric_color": "Green",
+    "shape_color": "Red",
+    "x": 46,
+    "y": 308,
+    "rotation": 242,
     "scale": 12
   }
 }

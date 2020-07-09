@@ -88,17 +88,17 @@ Alphanum = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
             'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
             'u', 'v', 'w', 'x', ' y', 'z']
 
-color_dict = {
-    Color.White:    '0xffffff',
-    Color.Black:    '0x000000',
-    Color.Gray:     '0x808080',
-    Color.Red:      '0xff0000',
-    Color.Blue:     '0x0000ff',  # Sampled from 0602.jpg (192,   137,    121)
-    Color.Green:    '0x00ff00',
-    Color.Yellow:   '0x00ffff',
-    Color.Purple:   '0xff00ff',
-    Color.Brown:    '0x422100',
-    Color.Orange:   '0xff8000'
+color_dict = {  # Sampled from https://www.auvsi-suas.org/
+    Color.White:    '0xfff2f5',
+    Color.Black:    '0x1d1d29',
+    Color.Gray:     '0xcbcccb',
+    Color.Red:      '0xe68a8c',
+    Color.Blue:     '0x90a8d0',
+    Color.Green:    '0x95b893',
+    Color.Yellow:   '0xf7ef84',
+    Color.Purple:   '0x9a81bb',
+    Color.Brown:    '0xe3ba8f',
+    Color.Orange:   '0xfbc077'
 }
 
 
