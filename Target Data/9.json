@@ -1,0 +1,12 @@
+{
+  "1": {
+    "alphanumeric": "y",
+    "shape": "Hexagon",
+    "alphanumeric_color": "Black",
+    "shape_color": "Brown",
+    "x": 132,
+    "y": 678,
+    "rotation": 16,
+    "scale": 18
+  }
+}

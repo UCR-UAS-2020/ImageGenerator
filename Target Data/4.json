@@ -1,32 +1,12 @@
 {
   "1": {
-    "alphanumeric": "7",
-    "shape": "Star",
-    "alphanumeric_color": "Gray",
-    "shape_color": "White",
-    "x": 1201,
-    "y": 215,
-    "rotation": 153,
+    "alphanumeric": "y",
+    "shape": "Trapezoid",
+    "alphanumeric_color": "Orange",
+    "shape_color": "Red",
+    "x": 60,
+    "y": 281,
+    "rotation": 357,
     "scale": 15
-  },
-  "2": {
-    "alphanumeric": "a",
-    "shape": "Rectangle",
-    "alphanumeric_color": "White",
-    "shape_color": "Green",
-    "x": 335,
-    "y": 10,
-    "rotation": 324,
-    "scale": 18
-  },
-  "3": {
-    "alphanumeric": "5",
-    "shape": "Octagon",
-    "alphanumeric_color": "Blue",
-    "shape_color": "Black",
-    "x": 761,
-    "y": 33,
-    "rotation": 180,
-    "scale": 19
   }
 }

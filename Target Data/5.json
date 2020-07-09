@@ -1,12 +1,12 @@
 {
   "1": {
-    "alphanumeric": "a",
-    "shape": "Star",
-    "alphanumeric_color": "White",
-    "shape_color": "Blue",
-    "x": 866,
-    "y": 578,
-    "rotation": 32,
-    "scale": 11
+    "alphanumeric": "y",
+    "shape": "Heptagon",
+    "alphanumeric_color": "Black",
+    "shape_color": "Purple",
+    "x": 290,
+    "y": 160,
+    "rotation": 126,
+    "scale": 10
   }
 }

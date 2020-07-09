@@ -3,10 +3,10 @@
     "alphanumeric": "y",
     "shape": "Semicircle",
     "alphanumeric_color": "White",
-    "shape_color": "Black",
-    "x": 95,
-    "y": 107,
-    "rotation": 194,
-    "scale": 18
+    "shape_color": "Yellow",
+    "x": 81,
+    "y": 366,
+    "rotation": 236,
+    "scale": 17
   }
 }
