@@ -7,6 +7,7 @@ from proto import *
 from target_gen import create_target_image
 from image_generator import make_random_target
 from argument_parser import parse_target
+# TODO: Fix outer border for some shape-rotation combination; some of the longer shapes are getting corners cut off
 
 
 def write_target_to_im(target: Target, im: np.ndarray):
