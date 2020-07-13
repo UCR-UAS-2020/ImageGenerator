@@ -8,6 +8,7 @@ Basic class prototypes for image generation. Enum definitions from AUVSI-SUAS/In
 import numpy as np
 from typing import Tuple, List
 from enum import Enum
+from json import dumps
 
 
 class Color(Enum):
@@ -63,20 +64,30 @@ class Target:
         self.scale = scale
         self.rotation = rotation
 
-    # TODO: Add proper number generation
     def make_json(self):
         data = {
                 "alphanumeric": self.alphanumeric,
                 "shape": self.shape.name,
                 "alphanumeric_color": self.color_alphanum.name,
                 "shape_color": self.color_shape.name,
-                "x": self.x,  # Replace with proper value
-                "y": self.y,  # Replace with proper value
-                "rotation": self.rotation,  # Replace with proper value
+                "x": self.x,
+                "y": self.y,
+                "rotation": self.rotation,
                 "scale": self.scale
         }
 
         return data
+
+    def make_target_only_json(self):
+        data = {
+                "alphanumeric": self.alphanumeric,
+                "shape": self.shape.name,
+                "alphanumeric_color": self.color_alphanum.name,
+                "shape_color": self.color_shape.name,
+                "rotation": self.rotation  # might round angle to 8 cardinal directions for CNN
+        }
+
+        return dumps(data, indent=2)
 
 
 def nearest_color(color: str) -> Color:

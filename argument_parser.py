@@ -2,12 +2,14 @@ import argparse
 from os.path import exists
 
 
-def parse():
-    parser = argparse.ArgumentParser(description='Image generator to train the ODLC model for UCRUAS 2020-2021')
+def parse_image():
+    parser = argparse.ArgumentParser(description='Image generator to train the YOLO model for UCRUAS 2020-2021')
     parser.add_argument('input_file', metavar='input_file', type=str,
                         help='background image for targets. Preferably .jpg')
     parser.add_argument('-r', '--random', action='store_true',
                         help='set to true for random number of targets. Otherwise, give number of targets')
+    parser.add_argument('-t', '--target', action='store_true',
+                        help='set to true to create target only')
 
     target_upper_limit = 20
     parser.add_argument('target', metavar='num_targs', type=int,
@@ -22,4 +24,17 @@ def parse():
     if args.target:
         if args.target > target_upper_limit or args.target < 0:
             raise argparse.ArgumentTypeError('Target bounds: [0, ' + str(target_upper_limit) + ']')
+    return args
+
+
+def parse_target():
+    parser = argparse.ArgumentParser(description='Target image generator to train the object classification model for '
+                                                 'UCRUAS 2020-2021')
+    parser.add_argument('input_file', metavar='input_file', type=str,
+                        help='background image for targets. Preferably .jpg')
+    parser.add_argument('num_targets', metavar='num_targets', type=int,
+                        help='number of targets to write to file. Written in .png')
+
+    args = parser.parse_args()
+
     return args

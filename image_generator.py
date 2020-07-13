@@ -6,16 +6,10 @@
 import cv2
 import random
 
-from typing import List
-
-from json import dumps
-# from ImageGenerator.proto import *
 from proto import *
-# from ImageGenerator.target_gen import create_target_image
 from target_gen import create_target_image
-from argument_parser import parse
-# TODO: re-implement above imports
-# TODO: Generate this target an put it in 0602.jpg:
+
+from argument_parser import parse_image
 # TODO: Allow for more memory allocation for base image
 # TODO: Decide if repeated runs of the image generator should overwrite or add onto existing images
 
@@ -140,20 +134,20 @@ def write_image_and_json(target_list, file_number, img):
     new_img = make_image(target_list, img)
     json_string = make_target_dict_json(target_list)
     cv2.imwrite('Images/' + file_number + '.png', new_img * 255.)
-    json_file = open('Target Data/' + file_number + '.json', 'w')
+    json_file = open('Image Data/' + file_number + '.json', 'w')
     json_file.write(json_string)
     json_file.close()
 
 
 if __name__ == '__main__':
-    params = parse()
+    params = parse_image()
     background_image = cv2.imread(params.input_file)
     if params.random:
-        for i in range(1, params.num_images+1):
+        for i in range(0, params.num_images):
             random.seed()
             t_list = make_random_target_list(background_image.shape[0], background_image.shape[1], params.target)
             write_image_and_json(t_list, str(i), background_image)
     else:
-        for i in range(1, params.num_images+1):
+        for i in range(0, params.num_images):
             t_list = make_target_list(background_image.shape[0], background_image.shape[1], params.target)
             write_image_and_json(t_list, str(i), background_image)

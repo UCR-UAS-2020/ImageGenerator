@@ -1,12 +1,7 @@
 {
-  "1": {
-    "alphanumeric": "y",
-    "shape": "Semicircle",
-    "alphanumeric_color": "White",
-    "shape_color": "Black",
-    "x": 95,
-    "y": 107,
-    "rotation": 194,
-    "scale": 18
-  }
+  "alphanumeric": "c",
+  "shape": "Rectangle",
+  "alphanumeric_color": "Blue",
+  "shape_color": "Orange",
+  "rotation": 148
 }

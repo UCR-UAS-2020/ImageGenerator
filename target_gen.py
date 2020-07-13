@@ -52,6 +52,10 @@ def create_target_image(target):
 
     img_shape = cv2.multiply(1.0 - alpha, img_shape)
     img_out = cv2.add(img_shape, img_letter)
+
+    kernel = np.ones((5, 5), np.float32) / 25
+
+    img_out = cv2.filter2D(img_out, -1, kernel)
     return img_out
 
 

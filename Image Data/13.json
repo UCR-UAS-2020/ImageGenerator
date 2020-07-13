@@ -1,0 +1,12 @@
+{
+  "1": {
+    "alphanumeric": "s",
+    "shape": "Square",
+    "alphanumeric_color": "Purple",
+    "shape_color": "Green",
+    "x": 865,
+    "y": 5,
+    "rotation": 97,
+    "scale": 13
+  }
+}

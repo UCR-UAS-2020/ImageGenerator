@@ -1,12 +1,7 @@
 {
-  "1": {
-    "alphanumeric": "y",
-    "shape": "Heptagon",
-    "alphanumeric_color": "Yellow",
-    "shape_color": "Red",
-    "x": 942,
-    "y": 279,
-    "rotation": 236,
-    "scale": 12
-  }
+  "alphanumeric": "c",
+  "shape": "Pentagon",
+  "alphanumeric_color": "Red",
+  "shape_color": "Green",
+  "rotation": 78
 }

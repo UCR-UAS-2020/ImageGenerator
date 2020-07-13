@@ -1,12 +1,7 @@
 {
-  "1": {
-    "alphanumeric": "y",
-    "shape": "Cross",
-    "alphanumeric_color": "Yellow",
-    "shape_color": "Black",
-    "x": 597,
-    "y": 681,
-    "rotation": 190,
-    "scale": 10
-  }
+  "alphanumeric": "y",
+  "shape": "Heptagon",
+  "alphanumeric_color": "Blue",
+  "shape_color": "Purple",
+  "rotation": 27
 }
