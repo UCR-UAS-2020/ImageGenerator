@@ -6,6 +6,7 @@
 
 import numpy as np
 import cv2
+from random import randint
 
 # from ImageGenerator.proto import Target
 # from ImageGenerator.proto import Color
@@ -18,8 +19,6 @@ from proto import *
 
 
 def create_target_image(target):
-    # TODO: build a function to render targets. This should look like the function below but using the target
-    #  object passed in instead of hardcoded values
     # creates an image rendering in 4 channels (BGRA) of the target passed to it. This should use the same methods as
     # the create_target_image_test function below.
     shape_color_bgr = target.color_shape
@@ -31,6 +30,16 @@ def create_target_image(target):
 
     img_letter = np.repeat(letter_filter[:, :, np.newaxis], 4, axis=2)
     png_shape = cv2.imread('Shapes/' + str(target.shape.value) + '.png', cv2.IMREAD_UNCHANGED)
+
+    shape_rotation = (randint(0, 3)) * 90
+    rows, cols, _ = png_shape.shape
+    matrix = cv2.getRotationMatrix2D((cols / 2, rows / 2), shape_rotation, 1)
+    png_shape = cv2.warpAffine(png_shape, matrix, (cols, rows))
+
+    print(png_shape[3])
+    cv2.imshow('d', png_shape)
+    cv2.waitKey()
+    cv2.destroyAllWindows()
 
     shape_filter = cv2.inRange(png_shape, (100, 0, 0), (255, 255, 255))
     img_shape = np.repeat(shape_filter[:, :, np.newaxis], 4, axis=2)

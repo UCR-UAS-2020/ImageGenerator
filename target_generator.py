@@ -51,8 +51,21 @@ def write_target_image_and_json(file_number: str, image: np.ndarray):
 
 
 if __name__ == '__main__':
-    params = parse_target()
-    img = cv2.imread(params.input_file)
-    num_targets = params.num_targets
-    for i in range(0, num_targets):
-        write_target_image_and_json(str(i), img)
+    # params = parse_target()
+    # img = cv2.imread(params.input_file)
+    # num_targets = params.num_targets
+    # for i in range(0, num_targets):
+    #     write_target_image_and_json(str(i), img)
+    from target_gen import create_target_image
+    targ = Target('d',
+                  Shape.Cross,
+                  alphanumeric_color=Color.White,
+                  shape_color=Color.Black,
+                  posx=0,
+                  posy=0,
+                  scale=15,
+                  rotation=0)
+    img = create_target_image(targ)
+    cv2.imshow('d', img)
+    cv2.waitKey()
+    cv2.destroyAllWindows()
