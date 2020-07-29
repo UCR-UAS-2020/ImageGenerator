@@ -35,8 +35,9 @@ def create_target_image(target):
     rows, cols, _ = png_shape.shape
     matrix = cv2.getRotationMatrix2D((cols / 2, rows / 2), shape_rotation, 1)
     png_shape = cv2.warpAffine(png_shape, matrix, (cols, rows))
+    png_shape = png_shape[:, :, :3]
 
-    print(png_shape[3])
+    print(png_shape.shape)
     cv2.imshow('d', png_shape)
     cv2.waitKey()
     cv2.destroyAllWindows()
@@ -109,7 +110,7 @@ def create_target_image_test():
 
 if __name__ == '__main__':
     target = Target(alphanumeric='i',
-                    shape=Shape.Triangle,
+                    shape=Shape.Cross,
                     alphanumeric_color=Color.Red,
                     shape_color=Color.White,
                     posx=100,
