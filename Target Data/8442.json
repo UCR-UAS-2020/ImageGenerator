@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "y",
-  "shape": "Pentagon",
+  "alphanumeric": "4",
+  "shape": "Quarter_Circle",
   "alphanumeric_color": "Brown",
   "shape_color": "Yellow",
-  "rotation": 163
+  "rotation": 107
 }

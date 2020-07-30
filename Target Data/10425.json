@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "e",
-  "shape": "Square",
-  "alphanumeric_color": "Yellow",
+  "alphanumeric": "u",
+  "shape": "Hexagon",
+  "alphanumeric_color": "Gray",
   "shape_color": "Purple",
-  "rotation": 278
+  "rotation": 350
 }

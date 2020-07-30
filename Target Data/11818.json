@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "t",
-  "shape": "Octagon",
-  "alphanumeric_color": "Yellow",
-  "shape_color": "Orange",
-  "rotation": 327
+  "alphanumeric": "s",
+  "shape": "Triangle",
+  "alphanumeric_color": "Orange",
+  "shape_color": "Red",
+  "rotation": 334
 }

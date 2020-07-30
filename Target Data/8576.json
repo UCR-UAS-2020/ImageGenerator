@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "6",
-  "shape": "Quarter_Circle",
-  "alphanumeric_color": "White",
-  "shape_color": "Brown",
-  "rotation": 299
+  "alphanumeric": "x",
+  "shape": "Trapezoid",
+  "alphanumeric_color": "Black",
+  "shape_color": "Yellow",
+  "rotation": 4
 }

@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "g",
-  "shape": "Semicircle",
-  "alphanumeric_color": "Brown",
+  "alphanumeric": "8",
+  "shape": "Rectangle",
+  "alphanumeric_color": "Blue",
   "shape_color": "Orange",
-  "rotation": 199
+  "rotation": 336
 }

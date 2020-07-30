@@ -7,6 +7,7 @@ from proto import *
 from target_gen import create_target_image
 from image_generator import make_random_target
 from argument_parser import parse_target
+from tqdm import tqdm
 # TODO: Fix outer border for some shape-rotation combination; some of the longer shapes are getting corners cut off
 
 
@@ -54,7 +55,7 @@ if __name__ == '__main__':
     params = parse_target()
     img = cv2.imread(params.input_file)
     num_targets = params.num_targets
-    for i in range(0, num_targets):
+    for i in tqdm(range(0, num_targets)):
         write_target_image_and_json(str(i), img)
     # from target_gen import create_target_image
     # targ = Target('d',

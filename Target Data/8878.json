@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "f",
-  "shape": "Rectangle",
+  "alphanumeric": "q",
+  "shape": "Trapezoid",
   "alphanumeric_color": "Black",
-  "shape_color": "Green",
-  "rotation": 46
+  "shape_color": "Red",
+  "rotation": 205
 }

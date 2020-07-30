@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "k",
-  "shape": "Pentagon",
-  "alphanumeric_color": "Black",
-  "shape_color": "Red",
-  "rotation": 226
+  "alphanumeric": "9",
+  "shape": "Heptagon",
+  "alphanumeric_color": "White",
+  "shape_color": "Black",
+  "rotation": 359
 }

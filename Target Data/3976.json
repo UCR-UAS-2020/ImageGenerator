@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "v",
-  "shape": "Star",
+  "alphanumeric": "9",
+  "shape": "Quarter_Circle",
   "alphanumeric_color": "Yellow",
-  "shape_color": "Red",
-  "rotation": 220
+  "shape_color": "Blue",
+  "rotation": 120
 }

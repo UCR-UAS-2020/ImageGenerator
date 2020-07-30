@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "u",
-  "shape": "Octagon",
+  "alphanumeric": "5",
+  "shape": "Quarter_Circle",
   "alphanumeric_color": "Blue",
-  "shape_color": "White",
-  "rotation": 201
+  "shape_color": "Orange",
+  "rotation": 47
 }

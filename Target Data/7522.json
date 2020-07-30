@@ -1,7 +1,7 @@
 {
   "alphanumeric": "d",
-  "shape": "Cross",
+  "shape": "Quarter_Circle",
   "alphanumeric_color": "Purple",
-  "shape_color": "Blue",
-  "rotation": 212
+  "shape_color": "Orange",
+  "rotation": 23
 }

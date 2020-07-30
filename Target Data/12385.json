@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "0",
+  "alphanumeric": "n",
   "shape": "Cross",
-  "alphanumeric_color": "Blue",
+  "alphanumeric_color": "Green",
   "shape_color": "Orange",
-  "rotation": 291
+  "rotation": 145
 }

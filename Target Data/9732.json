@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "q",
-  "shape": "Triangle",
-  "alphanumeric_color": "Red",
-  "shape_color": "Black",
-  "rotation": 49
+  "alphanumeric": "n",
+  "shape": "Circle",
+  "alphanumeric_color": "Gray",
+  "shape_color": "Orange",
+  "rotation": 278
 }

@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "i",
-  "shape": "Cross",
-  "alphanumeric_color": "Gray",
-  "shape_color": "Purple",
-  "rotation": 303
+  "alphanumeric": "v",
+  "shape": "Quarter_Circle",
+  "alphanumeric_color": "Red",
+  "shape_color": "Orange",
+  "rotation": 239
 }

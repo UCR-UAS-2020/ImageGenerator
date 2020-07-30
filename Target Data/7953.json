@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "c",
+  "alphanumeric": "l",
   "shape": "Semicircle",
-  "alphanumeric_color": "Black",
-  "shape_color": "White",
-  "rotation": 272
+  "alphanumeric_color": "Blue",
+  "shape_color": "Red",
+  "rotation": 166
 }

@@ -1,7 +1,7 @@
 {
   "alphanumeric": "p",
-  "shape": "Star",
-  "alphanumeric_color": "Yellow",
-  "shape_color": "Red",
-  "rotation": 60
+  "shape": "Square",
+  "alphanumeric_color": "Blue",
+  "shape_color": "White",
+  "rotation": 133
 }

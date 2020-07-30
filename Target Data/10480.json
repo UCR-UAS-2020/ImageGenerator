@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "f",
-  "shape": "Star",
-  "alphanumeric_color": "Yellow",
-  "shape_color": "Brown",
-  "rotation": 16
+  "alphanumeric": "n",
+  "shape": "Semicircle",
+  "alphanumeric_color": "Green",
+  "shape_color": "Black",
+  "rotation": 249
 }

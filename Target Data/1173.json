@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "a",
-  "shape": "Heptagon",
-  "alphanumeric_color": "Black",
-  "shape_color": "Purple",
-  "rotation": 113
+  "alphanumeric": "q",
+  "shape": "Triangle",
+  "alphanumeric_color": "Green",
+  "shape_color": "Black",
+  "rotation": 220
 }

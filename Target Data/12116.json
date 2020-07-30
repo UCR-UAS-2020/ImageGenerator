@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "b",
+  "alphanumeric": "u",
   "shape": "Square",
-  "alphanumeric_color": "Purple",
-  "shape_color": "Orange",
-  "rotation": 92
+  "alphanumeric_color": "White",
+  "shape_color": "Gray",
+  "rotation": 80
 }

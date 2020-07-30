@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "u",
-  "shape": "Rectangle",
-  "alphanumeric_color": "Purple",
-  "shape_color": "Red",
-  "rotation": 355
+  "alphanumeric": "g",
+  "shape": "Triangle",
+  "alphanumeric_color": "Red",
+  "shape_color": "Gray",
+  "rotation": 268
 }

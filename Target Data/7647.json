@@ -1,7 +1,7 @@
 {
   "alphanumeric": "j",
-  "shape": "Star",
-  "alphanumeric_color": "White",
-  "shape_color": "Brown",
-  "rotation": 355
+  "shape": "Hexagon",
+  "alphanumeric_color": "Brown",
+  "shape_color": "White",
+  "rotation": 321
 }

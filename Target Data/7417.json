@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "j",
-  "shape": "Triangle",
-  "alphanumeric_color": "Green",
-  "shape_color": "Brown",
-  "rotation": 303
+  "alphanumeric": "0",
+  "shape": "Trapezoid",
+  "alphanumeric_color": "Gray",
+  "shape_color": "Blue",
+  "rotation": 9
 }

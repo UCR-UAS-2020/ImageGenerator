@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "8",
-  "shape": "Star",
+  "alphanumeric": "v",
+  "shape": "Hexagon",
   "alphanumeric_color": "Gray",
-  "shape_color": "Black",
-  "rotation": 320
+  "shape_color": "Orange",
+  "rotation": 132
 }

@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "t",
+  "alphanumeric": "x",
   "shape": "Cross",
-  "alphanumeric_color": "Gray",
-  "shape_color": "White",
-  "rotation": 65
+  "alphanumeric_color": "Purple",
+  "shape_color": "Orange",
+  "rotation": 39
 }

@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "5",
-  "shape": "Rectangle",
-  "alphanumeric_color": "Green",
-  "shape_color": "Gray",
-  "rotation": 217
+  "alphanumeric": "t",
+  "shape": "Circle",
+  "alphanumeric_color": "Brown",
+  "shape_color": "Orange",
+  "rotation": 175
 }

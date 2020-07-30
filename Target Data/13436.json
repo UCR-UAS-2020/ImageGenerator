@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "j",
-  "shape": "Cross",
+  "alphanumeric": "p",
+  "shape": "Heptagon",
   "alphanumeric_color": "Red",
-  "shape_color": "White",
-  "rotation": 23
+  "shape_color": "Green",
+  "rotation": 159
 }

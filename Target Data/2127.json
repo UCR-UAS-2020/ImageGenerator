@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "9",
-  "shape": "Semicircle",
+  "alphanumeric": "o",
+  "shape": "Heptagon",
   "alphanumeric_color": "Red",
-  "shape_color": "White",
-  "rotation": 354
+  "shape_color": "Gray",
+  "rotation": 103
 }

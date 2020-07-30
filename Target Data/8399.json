@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "k",
-  "shape": "Circle",
+  "alphanumeric": "b",
+  "shape": "Rectangle",
   "alphanumeric_color": "Black",
   "shape_color": "Orange",
-  "rotation": 215
+  "rotation": 260
 }

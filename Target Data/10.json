@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "c",
-  "shape": "Octagon",
-  "alphanumeric_color": "Purple",
-  "shape_color": "Blue",
-  "rotation": 44
+  "alphanumeric": "6",
+  "shape": "Semicircle",
+  "alphanumeric_color": "Orange",
+  "shape_color": "Black",
+  "rotation": 315
 }

@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "o",
-  "shape": "Star",
-  "alphanumeric_color": "Blue",
-  "shape_color": "Green",
-  "rotation": 196
+  "alphanumeric": "1",
+  "shape": "Triangle",
+  "alphanumeric_color": "Green",
+  "shape_color": "Gray",
+  "rotation": 109
 }

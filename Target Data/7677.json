@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "g",
+  "alphanumeric": "e",
   "shape": "Semicircle",
-  "alphanumeric_color": "Red",
-  "shape_color": "Orange",
-  "rotation": 72
+  "alphanumeric_color": "Yellow",
+  "shape_color": "Gray",
+  "rotation": 39
 }

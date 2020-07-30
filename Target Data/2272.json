@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "l",
-  "shape": "Rectangle",
+  "alphanumeric": "n",
+  "shape": "Star",
   "alphanumeric_color": "Red",
-  "shape_color": "Black",
-  "rotation": 197
+  "shape_color": "White",
+  "rotation": 205
 }

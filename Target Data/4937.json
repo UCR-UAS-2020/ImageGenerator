@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "h",
-  "shape": "Star",
-  "alphanumeric_color": "Blue",
+  "alphanumeric": "j",
+  "shape": "Hexagon",
+  "alphanumeric_color": "Black",
   "shape_color": "Orange",
-  "rotation": 81
+  "rotation": 3
 }

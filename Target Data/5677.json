@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "l",
-  "shape": "Star",
-  "alphanumeric_color": "Purple",
+  "alphanumeric": "s",
+  "shape": "Quarter_Circle",
+  "alphanumeric_color": "Gray",
   "shape_color": "White",
-  "rotation": 324
+  "rotation": 27
 }

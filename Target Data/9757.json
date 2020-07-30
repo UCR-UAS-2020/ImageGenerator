@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "d",
+  "alphanumeric": "2",
   "shape": "Square",
-  "alphanumeric_color": "Green",
-  "shape_color": "Black",
-  "rotation": 178
+  "alphanumeric_color": "Gray",
+  "shape_color": "Blue",
+  "rotation": 65
 }

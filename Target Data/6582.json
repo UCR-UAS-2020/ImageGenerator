@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "g",
-  "shape": "Quarter_Circle",
+  "alphanumeric": "w",
+  "shape": "Pentagon",
   "alphanumeric_color": "Orange",
-  "shape_color": "Gray",
-  "rotation": 51
+  "shape_color": "Red",
+  "rotation": 350
 }

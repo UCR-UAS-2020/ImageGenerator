@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "d",
-  "shape": "Star",
-  "alphanumeric_color": "Green",
+  "alphanumeric": "5",
+  "shape": "Cross",
+  "alphanumeric_color": "Black",
   "shape_color": "White",
-  "rotation": 141
+  "rotation": 194
 }

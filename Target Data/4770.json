@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "x",
-  "shape": "Star",
-  "alphanumeric_color": "Brown",
-  "shape_color": "Red",
-  "rotation": 330
+  "alphanumeric": "e",
+  "shape": "Semicircle",
+  "alphanumeric_color": "Red",
+  "shape_color": "Brown",
+  "rotation": 96
 }

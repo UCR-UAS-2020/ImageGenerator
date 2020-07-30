@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "j",
-  "shape": "Circle",
-  "alphanumeric_color": "Gray",
-  "shape_color": "Blue",
-  "rotation": 289
+  "alphanumeric": "x",
+  "shape": "Semicircle",
+  "alphanumeric_color": "Red",
+  "shape_color": "Orange",
+  "rotation": 261
 }

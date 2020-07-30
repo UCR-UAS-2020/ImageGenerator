@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "i",
-  "shape": "Pentagon",
-  "alphanumeric_color": "Purple",
-  "shape_color": "White",
-  "rotation": 208
+  "alphanumeric": "b",
+  "shape": "Star",
+  "alphanumeric_color": "Blue",
+  "shape_color": "Black",
+  "rotation": 346
 }

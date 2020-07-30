@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "e",
-  "shape": "Trapezoid",
-  "alphanumeric_color": "Black",
+  "alphanumeric": "f",
+  "shape": "Hexagon",
+  "alphanumeric_color": "Red",
   "shape_color": "Brown",
-  "rotation": 139
+  "rotation": 116
 }

@@ -1,7 +1,7 @@
 {
   "alphanumeric": "l",
-  "shape": "Semicircle",
-  "alphanumeric_color": "Purple",
-  "shape_color": "White",
-  "rotation": 65
+  "shape": "Cross",
+  "alphanumeric_color": "Green",
+  "shape_color": "Orange",
+  "rotation": 143
 }

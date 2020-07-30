@@ -1,7 +1,7 @@
 {
   "alphanumeric": "t",
-  "shape": "Semicircle",
+  "shape": "Rectangle",
   "alphanumeric_color": "Black",
   "shape_color": "Green",
-  "rotation": 194
+  "rotation": 10
 }

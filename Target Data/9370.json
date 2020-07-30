@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "q",
-  "shape": "Trapezoid",
-  "alphanumeric_color": "Black",
+  "alphanumeric": "j",
+  "shape": "Hexagon",
+  "alphanumeric_color": "Brown",
   "shape_color": "Green",
-  "rotation": 50
+  "rotation": 78
 }
