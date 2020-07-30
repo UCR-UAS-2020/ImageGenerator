@@ -26,8 +26,8 @@ def make_random_target(image_height, image_width):
     height = int(image_height * (scale / 100.))
     while alphanum_color == shape_color:
         shape_color = random.choice(list(Color))
-    x = random.randint(0, int(image_width-width))
-    y = random.randint(0, int(image_height-height))
+    x = (random.uniform(0, float(image_width - width))) * 100 / float(image_width - width)
+    y = (random.uniform(0, float(image_height - height))) * 100 / float(image_height - height)
     rotation = random.randint(0, 359)
 
     return Target(alphanumeric=alphanum,
