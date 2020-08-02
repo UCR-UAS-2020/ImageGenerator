@@ -49,7 +49,7 @@ def make_random_target(image_height, image_width):
 # choose a random number of targets n = [0, 5]
 def make_random_target_list(image_height, image_width, upper_bound):
     target_list = []
-    for i in range(0, random.randint(1, upper_bound+1)):
+    for i in range(0, random.randint(0, upper_bound)):
         target_list.append(make_random_target(image_height, image_width))
     return target_list
 
