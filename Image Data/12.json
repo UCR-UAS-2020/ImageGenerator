@@ -1,12 +1,14 @@
 {
   "1": {
-    "alphanumeric": "l",
-    "shape": "Square",
-    "alphanumeric_color": "Red",
-    "shape_color": "Blue",
-    "x": 1290,
-    "y": 50,
-    "rotation": 122,
-    "scale": 10
+    "alphanumeric": "i",
+    "shape": "Pentagon",
+    "alphanumeric_color": "Orange",
+    "shape_color": "Purple",
+    "x": 0.5787537968973437,
+    "y": 0.5929621851229252,
+    "rotation": 289,
+    "scale": 10,
+    "width": 0.09995318352059925,
+    "height": 0.0997191011235955
   }
 }

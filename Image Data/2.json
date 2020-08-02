@@ -1,12 +1,26 @@
 {
   "1": {
-    "alphanumeric": "m",
-    "shape": "Pentagon",
-    "alphanumeric_color": "Black",
-    "shape_color": "White",
-    "x": 107,
-    "y": 464,
-    "rotation": 352,
-    "scale": 20
+    "alphanumeric": "w",
+    "shape": "Rectangle",
+    "alphanumeric_color": "Purple",
+    "shape_color": "Yellow",
+    "x": 0.4472621284571413,
+    "y": 0.435583361812532,
+    "rotation": 307,
+    "scale": 13,
+    "width": 0.12991573033707865,
+    "height": 0.12991573033707865
+  },
+  "2": {
+    "alphanumeric": "f",
+    "shape": "Star",
+    "alphanumeric_color": "Brown",
+    "shape_color": "Green",
+    "x": 0.9015625074807373,
+    "y": 0.8554601273226103,
+    "rotation": 73,
+    "scale": 10,
+    "width": 0.09995318352059925,
+    "height": 0.0997191011235955
   }
 }

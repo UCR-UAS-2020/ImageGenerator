@@ -21,13 +21,15 @@ def make_random_target(image_height, image_width):
     shape = random.choice(list(Shape))
     alphanum_color = random.choice(list(Color))
     shape_color = random.choice(list(Color))
-    scale = random.randint(10, 20)
+    scale = random.randint(5, 10)
     width = int(image_width * (scale / 100.))
+    percent_width = width / image_width
     height = int(image_height * (scale / 100.))
+    percent_height = height / image_height
     while alphanum_color == shape_color:
         shape_color = random.choice(list(Color))
-    x = (random.uniform(0, float(image_width - width))) * 100 / float(image_width - width)
-    y = (random.uniform(0, float(image_height - height))) * 100 / float(image_height - height)
+    x = (random.uniform(0, float(image_width - width * 1.6))) / float(image_width - width)
+    y = (random.uniform(0, float(image_height - height * 1.6))) / float(image_height - height)
     rotation = random.randint(0, 359)
 
     return Target(alphanumeric=alphanum,
@@ -37,7 +39,9 @@ def make_random_target(image_height, image_width):
                   posx=x,
                   posy=y,
                   scale=scale,
-                  rotation=rotation
+                  rotation=rotation,
+                  height=percent_height,
+                  width=percent_width
                   )
 
 
@@ -79,8 +83,8 @@ def make_target_dict_json(t_list):
 def push_target_to_im(im: np.ndarray, target: Target) -> np.ndarray:
     scale_percent = target.scale
     rotation = target.rotation
-    x = target.x
-    y = target.y
+    x = int(target.x * im.shape[1])
+    y = int(target.y * im.shape[0])
 
     img_target = create_target_image(target)
 
@@ -91,8 +95,8 @@ def push_target_to_im(im: np.ndarray, target: Target) -> np.ndarray:
     img_target = cv2.resize(img_target, dim, interpolation=cv2.INTER_AREA)
     img_background = im
     # add a 255-alpha channel to background
-    if img_background.shape[2] == 4:
-        img_background = img_background[:, :, 0:3]
+
+    img_background = img_background[:, :, 0:3]
 
     img_background = np.dstack((img_background, 255. * np.ones(np.shape(img_background)[0:2])))
     rows, cols, depth = img_target.shape

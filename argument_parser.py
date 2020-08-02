@@ -8,8 +8,6 @@ def parse_image():
                         help='background image for targets. Preferably .jpg')
     parser.add_argument('-r', '--random', action='store_true',
                         help='set to true for random number of targets. Otherwise, give number of targets')
-    parser.add_argument('-t', '--target', action='store_true',
-                        help='set to true to create target only')
 
     target_upper_limit = 20
     parser.add_argument('target', metavar='num_targs', type=int,

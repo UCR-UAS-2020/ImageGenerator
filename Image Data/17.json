@@ -1,12 +1,14 @@
 {
   "1": {
-    "alphanumeric": "k",
-    "shape": "Trapezoid",
-    "alphanumeric_color": "Black",
-    "shape_color": "Green",
-    "x": 496,
-    "y": 238,
-    "rotation": 192,
-    "scale": 10
+    "alphanumeric": "s",
+    "shape": "Star",
+    "alphanumeric_color": "Purple",
+    "shape_color": "Orange",
+    "x": 0.738278878152241,
+    "y": 0.8819411115233545,
+    "rotation": 81,
+    "scale": 13,
+    "width": 0.12991573033707865,
+    "height": 0.12991573033707865
   }
 }

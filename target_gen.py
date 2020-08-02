@@ -37,11 +37,6 @@ def create_target_image(target):
     png_shape = cv2.warpAffine(png_shape, matrix, (cols, rows))
     png_shape = png_shape[:, :, :3]
 
-    print(png_shape.shape)
-    cv2.imshow('d', png_shape)
-    cv2.waitKey()
-    cv2.destroyAllWindows()
-
     shape_filter = cv2.inRange(png_shape, (100, 0, 0), (255, 255, 255))
     img_shape = np.repeat(shape_filter[:, :, np.newaxis], 4, axis=2)
 
