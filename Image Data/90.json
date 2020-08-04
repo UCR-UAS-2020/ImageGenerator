@@ -1,0 +1,26 @@
+{
+  "1": {
+    "alphanumeric": "t",
+    "shape": "Cross",
+    "alphanumeric_color": "Green",
+    "shape_color": "Gray",
+    "x": 0.615548528163174,
+    "y": 0.3209949091591266,
+    "rotation": 10,
+    "scale": 7,
+    "width": 0.06999063670411985,
+    "height": 0.06987359550561797
+  },
+  "2": {
+    "alphanumeric": "a",
+    "shape": "Octagon",
+    "alphanumeric_color": "Yellow",
+    "shape_color": "Purple",
+    "x": 0.8706446981266288,
+    "y": 0.895029018853061,
+    "rotation": 359,
+    "scale": 7,
+    "width": 0.06999063670411985,
+    "height": 0.06987359550561797
+  }
+}

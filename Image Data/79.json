@@ -1,0 +1,38 @@
+{
+  "1": {
+    "alphanumeric": "u",
+    "shape": "Hexagon",
+    "alphanumeric_color": "Gray",
+    "shape_color": "Blue",
+    "x": 0.2962198686160754,
+    "y": 0.1638817076466193,
+    "rotation": 160,
+    "scale": 7,
+    "width": 0.06999063670411985,
+    "height": 0.06987359550561797
+  },
+  "2": {
+    "alphanumeric": "5",
+    "shape": "Pentagon",
+    "alphanumeric_color": "Purple",
+    "shape_color": "Orange",
+    "x": 0.5676755367120737,
+    "y": 0.4010103544277151,
+    "rotation": 126,
+    "scale": 12,
+    "width": 0.1198501872659176,
+    "height": 0.11973314606741572
+  },
+  "3": {
+    "alphanumeric": "1",
+    "shape": "Trapezoid",
+    "alphanumeric_color": "Yellow",
+    "shape_color": "Brown",
+    "x": 0.7354095863844904,
+    "y": 0.7526436035831273,
+    "rotation": 133,
+    "scale": 9,
+    "width": 0.0898876404494382,
+    "height": 0.0898876404494382
+  }
+}

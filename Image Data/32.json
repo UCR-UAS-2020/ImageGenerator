@@ -1,0 +1,26 @@
+{
+  "1": {
+    "alphanumeric": "a",
+    "shape": "Rectangle",
+    "alphanumeric_color": "Orange",
+    "shape_color": "Black",
+    "x": 0.4147425087380487,
+    "y": 0.34194332139206407,
+    "rotation": 247,
+    "scale": 5,
+    "width": 0.04985955056179775,
+    "height": 0.04985955056179775
+  },
+  "2": {
+    "alphanumeric": "h",
+    "shape": "Triangle",
+    "alphanumeric_color": "Gray",
+    "shape_color": "Black",
+    "x": 0.2228167097659757,
+    "y": 0.9207633094245343,
+    "rotation": 267,
+    "scale": 7,
+    "width": 0.06999063670411985,
+    "height": 0.06987359550561797
+  }
+}

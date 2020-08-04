@@ -54,7 +54,9 @@ class Target:
                  posx: int,
                  posy: int,
                  scale: int,
-                 rotation: int):
+                 rotation: int,
+                 height: int,
+                 width: int):
         self.alphanumeric = alphanumeric
         self.shape = shape
         self.color_alphanum = alphanumeric_color
@@ -63,6 +65,8 @@ class Target:
         self.y = posy
         self.scale = scale
         self.rotation = rotation
+        self.height = height
+        self.width = width
 
     def make_json(self):
         data = {
@@ -73,7 +77,9 @@ class Target:
                 "x": self.x,
                 "y": self.y,
                 "rotation": self.rotation,
-                "scale": self.scale
+                "scale": self.scale,
+                "width": self.width,
+                "height": self.height
         }
 
         return data

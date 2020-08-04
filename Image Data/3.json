@@ -1,12 +1,14 @@
 {
   "1": {
-    "alphanumeric": "0",
-    "shape": "Hexagon",
-    "alphanumeric_color": "White",
-    "shape_color": "Black",
-    "x": 923,
-    "y": 539,
-    "rotation": 308,
-    "scale": 12
+    "alphanumeric": "b",
+    "shape": "Triangle",
+    "alphanumeric_color": "Blue",
+    "shape_color": "Brown",
+    "x": 0.07336880899679349,
+    "y": 0.040773725380436845,
+    "rotation": 267,
+    "scale": 9,
+    "width": 0.0898876404494382,
+    "height": 0.0898876404494382
   }
 }

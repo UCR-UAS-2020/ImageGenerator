@@ -1,12 +1,14 @@
 {
   "1": {
-    "alphanumeric": "1",
-    "shape": "Trapezoid",
-    "alphanumeric_color": "Yellow",
+    "alphanumeric": "f",
+    "shape": "Semicircle",
+    "alphanumeric_color": "White",
     "shape_color": "Red",
-    "x": 491,
-    "y": 721,
-    "rotation": 277,
-    "scale": 20
+    "x": 0.08372463157677626,
+    "y": 0.7801487723976634,
+    "rotation": 114,
+    "scale": 9,
+    "width": 0.0898876404494382,
+    "height": 0.0898876404494382
   }
 }
