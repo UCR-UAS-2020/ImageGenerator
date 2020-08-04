@@ -4,8 +4,6 @@ from os.path import exists
 
 def parse_image():
     parser = argparse.ArgumentParser(description='Image generator to train the YOLO model for UCRUAS 2020-2021')
-    parser.add_argument('input_file', metavar='input_file', type=str,
-                        help='background image for targets. Preferably .jpg')
     parser.add_argument('-r', '--random', action='store_true',
                         help='set to true for random number of targets. Otherwise, give number of targets')
 
@@ -17,8 +15,6 @@ def parse_image():
 
     args = parser.parse_args()
 
-    if not exists(args.input_file):
-        raise argparse.ArgumentTypeError('Invalid file')
     if args.target:
         if args.target > target_upper_limit or args.target < 0:
             raise argparse.ArgumentTypeError('Target bounds: [0, ' + str(target_upper_limit) + ']')
@@ -28,8 +24,6 @@ def parse_image():
 def parse_target():
     parser = argparse.ArgumentParser(description='Target image generator to train the object classification model for '
                                                  'UCRUAS 2020-2021')
-    parser.add_argument('input_file', metavar='input_file', type=str,
-                        help='background image for targets. Preferably .jpg')
     parser.add_argument('num_targets', metavar='num_targets', type=int,
                         help='number of targets to write to file. Written in .png')
 

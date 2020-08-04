@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 import random
+import os
 
 from json import dumps
 from proto import *
@@ -53,9 +54,11 @@ def write_target_image_and_json(file_number: str, image: np.ndarray):
 
 if __name__ == '__main__':
     params = parse_target()
-    img = cv2.imread(params.input_file)
     num_targets = params.num_targets
     for i in tqdm(range(0, num_targets)):
+        file_dir = os.listdir('background images')
+        file_name = 'background images/' + random.choice(file_dir)
+        img = cv2.imread(file_name)
         write_target_image_and_json(str(i), img)
     # from target_gen import create_target_image
     # targ = Target('d',

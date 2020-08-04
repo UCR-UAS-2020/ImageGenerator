@@ -5,6 +5,7 @@
 # import numpy as np
 import cv2
 import random
+import os
 
 from proto import *
 from target_gen import create_target_image
@@ -145,13 +146,18 @@ def write_image_and_json(target_list, file_number, img):
 
 if __name__ == '__main__':
     params = parse_image()
-    background_image = cv2.imread(params.input_file)
     if params.random:
         for i in range(0, params.num_images):
+            file_dir = os.listdir('background images')
+            file_name = 'background images/' + random.choice(file_dir)
+            background_image = cv2.imread(file_name)
             random.seed()
             t_list = make_random_target_list(background_image.shape[0], background_image.shape[1], params.target)
             write_image_and_json(t_list, str(i), background_image)
     else:
         for i in range(0, params.num_images):
+            file_dir = os.listdir('background images')
+            file_name = 'background images/' + random.choice(file_dir)
+            background_image = cv2.imread(file_name)
             t_list = make_target_list(background_image.shape[0], background_image.shape[1], params.target)
             write_image_and_json(t_list, str(i), background_image)

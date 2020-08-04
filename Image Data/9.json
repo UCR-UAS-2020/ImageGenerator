@@ -1,14 +1,14 @@
 {
   "1": {
-    "alphanumeric": "f",
-    "shape": "Circle",
-    "alphanumeric_color": "Green",
-    "shape_color": "Purple",
-    "x": 0.5559724085627172,
-    "y": 0.20850223285134378,
-    "rotation": 327,
-    "scale": 12,
-    "width": 0.1198501872659176,
-    "height": 0.11973314606741572
+    "alphanumeric": "6",
+    "shape": "Pentagon",
+    "alphanumeric_color": "Brown",
+    "shape_color": "Orange",
+    "x": 0.02969690386297286,
+    "y": 0.07258829001910087,
+    "rotation": 213,
+    "scale": 9,
+    "width": 0.09,
+    "height": 0.09
   }
 }
