@@ -15,15 +15,24 @@ from tqdm import tqdm
 def write_target_to_im(target: Target, im: np.ndarray):
     img = create_target_image(target)
 
-    width = int(img.shape[1] * (target.scale / 100.))
-    height = int(img.shape[0] * (target.scale / 100.))
+    width = int(img.shape[1] * target.width * 2)
+    height = int(img.shape[0] * target.height * 2)
+    # width = int(img.shape[1] * (target.scale / 100.))
+    # height = int(img.shape[0] * (target.scale / 100.))
+    x_coord = int(img.shape[1] * target.x)
+    y_coord = int(img.shape[0] * target.y)
 
     img = cv2.resize(img, (width, height), interpolation=cv2.INTER_AREA)
 
     im_background = np.dstack((im, 255. * np.ones(np.shape(im)[0:2])))
-    im_background = im_background[target.y:target.y+img.shape[0], target.x:target.x+img.shape[1]]
-    rows, cols, depth = img.shape
 
+    top = int(y_coord - height / 2)
+    bottom = int(y_coord + height / 2)
+    right = int(x_coord + height / 2)
+    left = int(x_coord - height / 2)
+
+    im_background = im_background[top:bottom, left:right]
+    rows, cols, depth = img.shape
     matrix = cv2.getRotationMatrix2D((cols / 2, rows / 2), target.rotation, 1)
     img = cv2.warpAffine(img, matrix, (cols, rows))
 

@@ -1,7 +1,7 @@
 {
-  "alphanumeric": "h",
-  "shape": "Trapezoid",
-  "alphanumeric_color": "White",
+  "alphanumeric": "d",
+  "shape": "Cross",
+  "alphanumeric_color": "Green",
   "shape_color": "Yellow",
-  "rotation": 68
+  "rotation": 192
 }
