@@ -61,6 +61,9 @@ def create_target_image(target):
     kernel = np.ones((5, 5), np.float32) / 25
 
     img_out = cv2.filter2D(img_out, -1, kernel)
+    
+    img_out = cv2.GaussianBlur(img_out, (5,5), 0)
+    
     return img_out
 
 
