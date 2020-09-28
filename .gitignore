@@ -81,6 +81,10 @@ venv
 
 #Generated Targets
 Targets/*
+Target Data/*
 
 #Generated Images
 Images/*
+Image Data/*
+
+
