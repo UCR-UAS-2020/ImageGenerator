@@ -80,9 +80,9 @@ venv
 .DS_Store
 
 #Generated targets
-Targets/
-Target Data/
+Targets/*
+Target Data/*
 
 #Generated Images
-Images/
-Image Data/
+Images/*
+Image Data/*
