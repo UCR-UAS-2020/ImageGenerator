@@ -55,6 +55,10 @@ def write_target_image_and_json(file_number: str, image: np.ndarray):
     target = make_random_target(image.shape[0], image.shape[1])
     target_img = write_target_to_im(target, image)
     json_string = target.make_target_only_json()
+    if not os.path.exists('Targets'):
+        os.makedirs('Targets')
+    if not os.path.exists('Target Data'):
+        os.makedirs('Target Data')
     cv2.imwrite('Targets/' + file_number + '.png', target_img * 255.)
     json_file = open('Target Data/' + file_number + '.json', 'w')
     json_file.write(json_string)

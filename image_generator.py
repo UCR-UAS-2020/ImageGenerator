@@ -138,6 +138,10 @@ def push_target_to_im(im: np.ndarray, target: Target) -> np.ndarray:
 def write_image_and_json(target_list, file_number, img):
     new_img = make_image(target_list, img)
     json_string = make_target_dict_json(target_list)
+    if not os.path.exists('Images'):
+        os.makedirs('Images')
+    if not os.path.exists('Image Data'):
+        os.makedirs('Image Data')
     cv2.imwrite('Images/' + file_number + '.png', new_img * 255.)
     json_file = open('Image Data/' + file_number + '.json', 'w')
     json_file.write(json_string)
