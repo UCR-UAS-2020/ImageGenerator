@@ -78,3 +78,9 @@ venv
 
 #Miscellaneous files
 .DS_Store
+
+#Generated Targets
+Targets/*
+
+#Generated Images
+Images/*
